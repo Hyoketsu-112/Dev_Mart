@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Dev_Mart — Nigerian Marketplace Redefined</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announce-bar">
+      <div class="announce-track">
+        <span>🛡️ 100% Authentic Products</span><span class="dot">✦</span>
+        <span>🚚 Same-Day Lagos Delivery</span><span class="dot">✦</span>
+        <span>🔁 Free Returns within 7 Days</span><span class="dot">✦</span>
+        <span>✅ Verified Nigerian Vendors Only</span><span class="dot">✦</span>
+        <span>💳 Pay on Delivery Available</span><span class="dot">✦</span>
+        <span>🛡️ 100% Authentic Products</span><span class="dot">✦</span>
+        <span>🚚 Same-Day Lagos Delivery</span><span class="dot">✦</span>
+        <span>🔁 Free Returns within 7 Days</span><span class="dot">✦</span>
+        <span>✅ Verified Nigerian Vendors Only</span><span class="dot">✦</span>
+        <span>💳 Pay on Delivery Available</span><span class="dot">✦</span>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <div class="logo-mark">D</div>
+          <div class="logo-text">
+            <span class="logo-main">Dev_Mart</span>
+            <span class="logo-sub">Lagos · Nigeria</span>
+          </div>
+        </div>
+
+        <div class="search-container" id="desktopSearch">
+          <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search fabrics, food, groceries…"
+              autocomplete="off"
+            />
+            <button id="searchBtn" class="search-go">Search</button>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <button
+            class="nav-icon-btn mobile-only"
+            id="mobileSearchToggle"
+            aria-label="Search"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="nav-icon-btn" title="Wishlist" aria-label="Wishlist">
+            <i class="far fa-heart"></i>
+            <span class="nav-label">Saved</span>
+          </button>
+          <button
+            class="nav-icon-btn"
+            id="cartIconBtn"
+            title="Cart"
+            aria-label="Open cart"
+          >
+            <i class="fas fa-shopping-bag"></i>
+            <span class="nav-label">Cart</span>
+            <div class="cart-badge" id="cartCount">0</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile search bar -->
+      <div class="mobile-search-bar" id="mobileSearchBar">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            id="mobileSearchInput"
+            placeholder="Search fabrics, food, groceries…"
+            autocomplete="off"
+          />
+          <button id="mobileSearchBtn" class="search-go">Go</button>
+        </div>
+      </div>
+
+      <!-- CATEGORY NAV -->
+      <div class="cat-nav">
+        <div class="cat-nav-inner" id="categoryFilter">
+          <button class="cat-pill active" data-cat="all">
+            <i class="fas fa-th-large"></i><span>All Products</span>
+          </button>
+          <button class="cat-pill" data-cat="Fabrics">
+            <i class="fas fa-scroll"></i><span>Fabrics &amp; Textiles</span>
+          </button>
+          <button class="cat-pill" data-cat="Food">
+            <i class="fas fa-utensils"></i><span>Nigerian Food</span>
+          </button>
+          <button class="cat-pill" data-cat="Groceries">
+            <i class="fas fa-shopping-basket"></i><span>Groceries</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBILE FILTER TRIGGER BAR -->
+    <div class="mobile-filter-bar" id="mobileFilterBar">
+      <button class="mf-trigger-btn" id="openMobileFilters">
+        <i class="fas fa-sliders-h"></i> Filters &amp; Sort
+      </button>
+      <span class="mf-active-count" id="activeFilterCount"></span>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-blob blob1"></div>
+        <div class="hero-blob blob2"></div>
+        <div class="hero-blob blob3"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span><span>Live · Lagos Marketplace</span>
+        </div>
+        <h1 class="hero-title">
+          <span>Shop Nigeria's</span>
+          <span>Finest <em>Fabrics</em></span>
+          <span>&amp; <em>Food</em> Online</span>
+        </h1>
+        <p class="hero-sub">
+          From vibrant Ankara to fresh groceries — delivered to your door across
+          Lagos. No wahala.
+        </p>
+        <div class="hero-ctas">
+          <button class="cta-primary" id="heroShopBtn">
+            Shop Now <i class="fas fa-arrow-right"></i>
+          </button>
+          <button class="cta-ghost">
+            <i class="fas fa-play-circle"></i> How It Works
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>2,400+</strong><span>Products</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>850+</strong><span>Vendors</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>4.9★</strong><span>Rating</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-cards-stack">
+          <div class="hcard hcard1">
+            <img
+              src="Assets/Ankara_Atampa.jpg"
+              alt="Ankara Fabric"
+              loading="eager"
+            />
+            <div class="hcard-label">Ankara Fabrics</div>
+          </div>
+          <div class="hcard hcard2">
+            <img
+              src="Assets/Beans and plantain.jpg"
+              alt="Nigerian Food"
+              loading="eager"
+            />
+            <div class="hcard-label">Nigerian Food</div>
+          </div>
+          <div class="hcard hcard3">
+            <img src="Assets/BOLDAN_1.jpg" alt="Premium Fabric" loading="eager" />
+            <div class="hcard-label">Premium Brocade</div>
+          </div>
+        </div>
+        <div class="floating-badge fb1">
+          <i class="fas fa-check-circle"></i> Verified Vendors
+        </div>
+        <div class="floating-badge fb2">
+          <i class="fas fa-bolt"></i> Fast Delivery
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
+          <div>
+            <strong>100% Authentic</strong><span>All vendors verified</span>
+          </div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fas fa-motorcycle"></i></div>
+          <div>
+            <strong>Same-Day Delivery</strong
+            ><span>Lagos Island &amp; Mainland</span>
+          </div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fas fa-undo-alt"></i></div>
+          <div>
+            <strong>Easy Returns</strong><span>7-day return policy</span>
+          </div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fas fa-lock"></i></div>
+          <div>
+            <strong>Secure Payment</strong
+            ><span>Paystack · Transfer · POD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORIES SHOWCASE -->
+    <section class="categories-section">
+      <div class="section-header">
+        <div class="section-label">Browse by Category</div>
+        <h2>What Are You Shopping For?</h2>
+      </div>
+      <div class="cat-showcase">
+        <div class="cat-card big-cat" onclick="filterCategory('Fabrics')">
+          <img
+            src="Assets/Ankara_Atampa.jpg"
+            alt="Fabrics and Textiles"
+            loading="lazy"
+          />
+          <div class="cat-card-overlay">
+            <div class="cat-card-tag">Fabrics &amp; Textiles</div>
+            <div class="cat-card-count">120+ Products</div>
+            <button class="cat-shop-btn">
+              Shop Now <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="cat-col">
+          <div class="cat-card" onclick="filterCategory('Food')">
+            <img
+              src="Assets/Beans and plantain.jpg"
+              alt="Nigerian Food"
+              loading="lazy"
+            />
+            <div class="cat-card-overlay">
+              <div class="cat-card-tag">Nigerian Food</div>
+              <div class="cat-card-count">80+ Items</div>
+              <button class="cat-shop-btn">
+                Shop Now <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="cat-card" onclick="filterCategory('Groceries')">
+            <img
+              src="Assets/groceries.jpg"
+              alt="Groceries"
+              loading="lazy"
+            />
+            <div class="cat-card-overlay">
+              <div class="cat-card-tag">Groceries</div>
+              <div class="cat-card-count">200+ Items</div>
+              <button class="cat-shop-btn">
+                Shop Now <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="productsSection">
+      <div class="products-header">
+        <div>
+          <div class="section-label">Our Collection</div>
+          <h2>Featured Products</h2>
+        </div>
+        <select id="sortSelect" class="sort-select">
+          <option value="default">Sort: Featured</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
+
+      <div class="products-layout">
+        <!-- SIDEBAR FILTERS (desktop) -->
+        <aside class="filter-sidebar" id="filterSidebar">
+          <div class="sidebar-header-row">
+            <span class="filter-sidebar-title">Filters</span>
+            <button class="clear-all-btn" id="clearAllFilters">
+              Clear All
+            </button>
+          </div>
+          <div class="filter-block">
+            <div class="filter-title">Categories</div>
+            <label class="filter-option"
+              ><input
+                type="radio"
+                name="catFilter"
+                value="all"
+                checked
+                onchange="setSideFilter(this)"
+              />
+              All Products</label
+            >
+            <label class="filter-option"
+              ><input
+                type="radio"
+                name="catFilter"
+                value="Fabrics"
+                onchange="setSideFilter(this)"
+              />
+              Fabrics &amp; Textiles</label
+            >
+            <label class="filter-option"
+              ><input
+                type="radio"
+                name="catFilter"
+                value="Food"
+                onchange="setSideFilter(this)"
+              />
+              Nigerian Food</label
+            >
+            <label class="filter-option"
+              ><input
+                type="radio"
+                name="catFilter"
+                value="Groceries"
+                onchange="setSideFilter(this)"
+              />
+              Groceries</label
+            >
+          </div>
+          <div class="filter-block">
+            <div class="filter-title">Price Range</div>
+            <div class="price-inputs">
+              <input
+                type="number"
+                id="priceMin"
+                placeholder="Min ₦"
+                oninput="applyPriceFilter()"
+                min="0"
+              />
+              <span>—</span>
+              <input
+                type="number"
+                id="priceMax"
+                placeholder="Max ₦"
+                oninput="applyPriceFilter()"
+                min="0"
+              />
+            </div>
+          </div>
+          <div class="filter-block">
+            <div class="filter-title">Minimum Rating</div>
+            <label class="filter-option"
+              ><input
+                type="checkbox"
+                value="5"
+                onchange="applyRatingFilter(this)"
+              />
+              ★★★★★ (5.0 only)</label
+            >
+            <label class="filter-option"
+              ><input
+                type="checkbox"
+                value="4"
+                onchange="applyRatingFilter(this)"
+              />
+              ★★★★☆ (4.0 &amp; above)</label
+            >
+          </div>
+          <div class="filter-block">
+            <div class="filter-title">Availability</div>
+            <label class="filter-option"
+              ><input
+                type="checkbox"
+                id="inStockOnly"
+                onchange="renderProducts()"
+              />
+              In Stock Only</label
+            >
+            <label class="filter-option"
+              ><input
+                type="checkbox"
+                id="verifiedOnly"
+                onchange="renderProducts()"
+              />
+              Verified Sellers Only</label
+            >
+          </div>
+        </aside>
+
+        <!-- PRODUCT GRID -->
+        <div class="products-main">
+          <div class="active-filters" id="activeFilters"></div>
+          <div class="product-grid" id="productGridContainer"></div>
+          <div class="load-more-wrap">
+            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()">
+              Load More Products <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEALS BANNER -->
+    <section class="deals-banner">
+      <div class="deals-content">
+        <div class="deals-badge">🔥 Flash Sale</div>
+        <h3>Up to 40% Off Selected Fabrics</h3>
+        <p>Limited time — while stocks last. Ankara, Kente &amp; more.</p>
+        <button class="deals-btn" onclick="filterCategory('Fabrics')">
+          Shop the Sale
+        </button>
+      </div>
+      <div class="deals-timer">
+        <div class="timer-block">
+          <span id="tHours">08</span><small>Hours</small>
+        </div>
+        <div class="timer-colon">:</div>
+        <div class="timer-block">
+          <span id="tMins">34</span><small>Mins</small>
+        </div>
+        <div class="timer-colon">:</div>
+        <div class="timer-block">
+          <span id="tSecs">22</span><small>Secs</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI PICKS -->
+    <section class="ai-section">
+      <div class="section-header">
+        <div class="section-label">
+          <i class="fas fa-wand-magic-sparkles"></i> AI-Powered
+        </div>
+        <h2>Picked Just For You</h2>
+        <p class="section-desc">
+          Based on trending products and what Lagos shoppers love this week
+        </p>
+      </div>
+      <div class="ai-grid" id="aiRecommendations"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="logo-mark">D</div>
+            <span>Dev_Mart</span>
+          </div>
+          <p>
+            Nigeria's most trusted online marketplace for fabrics, food, and
+            everyday essentials. Quality you can count on.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="X/Twitter"
+              ><i class="fab fa-x-twitter"></i
+            ></a>
+            <a href="#" aria-label="WhatsApp"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <a href="#">Fabrics &amp; Textiles</a>
+            <a href="#">Nigerian Food</a>
+            <a href="#">Groceries</a>
+            <a href="#">Flash Deals</a>
+            <a href="#">New Arrivals</a>
+          </div>
+          <div class="footer-col">
+            <h4>Help</h4>
+            <a href="#">Track Order</a>
+            <a href="#">Returns Policy</a>
+            <a href="#">Payment Options</a>
+            <a href="#">Delivery Areas</a>
+            <a href="#">FAQs</a>
+          </div>
+          <div class="footer-col">
+            <h4>Sell</h4>
+            <a href="#">Become a Vendor</a>
+            <a href="#">Vendor Dashboard</a>
+            <a href="#">Seller Guidelines</a>
+            <a href="#">Advertise</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Dev_Mart Nigeria. All rights reserved.</span>
+        <div class="payment-icons">
+          <span>Paystack</span>
+          <span>Bank Transfer</span>
+          <span>Pay on Delivery</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MOBILE FILTER SHEET -->
+    <div class="sheet-overlay" id="sheetOverlay"></div>
+    <div class="filter-sheet" id="filterSheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-header">
+        <span>Filters &amp; Sort</span>
+        <button
+          class="sheet-close-btn"
+          id="closeFilterSheet"
+          aria-label="Close filters"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="sheet-body">
+        <div class="filter-block">
+          <div class="filter-title">Sort By</div>
+          <select id="mobileSortSelect" class="sort-select full-select">
+            <option value="default">Featured</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+        <div class="filter-block">
+          <div class="filter-title">Category</div>
+          <label class="filter-option"
+            ><input
+              type="radio"
+              name="catFilterM"
+              value="all"
+              checked
+              onchange="setSideFilter(this)"
+            />
+            All Products</label
+          >
+          <label class="filter-option"
+            ><input
+              type="radio"
+              name="catFilterM"
+              value="Fabrics"
+              onchange="setSideFilter(this)"
+            />
+            Fabrics &amp; Textiles</label
+          >
+          <label class="filter-option"
+            ><input
+              type="radio"
+              name="catFilterM"
+              value="Food"
+              onchange="setSideFilter(this)"
+            />
+            Nigerian Food</label
+          >
+          <label class="filter-option"
+            ><input
+              type="radio"
+              name="catFilterM"
+              value="Groceries"
+              onchange="setSideFilter(this)"
+            />
+            Groceries</label
+          >
+        </div>
+        <div class="filter-block">
+          <div class="filter-title">Price Range</div>
+          <div class="price-inputs">
+            <input
+              type="number"
+              id="priceMinM"
+              placeholder="Min ₦"
+              oninput="applyPriceFilterM()"
+              min="0"
+            />
+            <span>—</span>
+            <input
+              type="number"
+              id="priceMaxM"
+              placeholder="Max ₦"
+              oninput="applyPriceFilterM()"
+              min="0"
+            />
+          </div>
+        </div>
+        <div class="filter-block">
+          <div class="filter-title">Rating</div>
+          <label class="filter-option"
+            ><input
+              type="checkbox"
+              class="mRatingCb"
+              value="5"
+              onchange="applyRatingFilter(this)"
+            />
+            ★★★★★ (5.0 only)</label
+          >
+          <label class="filter-option"
+            ><input
+              type="checkbox"
+              class="mRatingCb"
+              value="4"
+              onchange="applyRatingFilter(this)"
+            />
+            ★★★★☆ (4.0 &amp; above)</label
+          >
+        </div>
+        <div class="filter-block">
+          <div class="filter-title">Availability</div>
+          <label class="filter-option"
+            ><input
+              type="checkbox"
+              id="inStockOnlyM"
+              onchange="renderProducts()"
+            />
+            In Stock Only</label
+          >
+          <label class="filter-option"
+            ><input
+              type="checkbox"
+              id="verifiedOnlyM"
+              onchange="renderProducts()"
+            />
+            Verified Sellers Only</label
+          >
+        </div>
+      </div>
+      <div class="sheet-footer">
+        <button class="sheet-clear-btn" id="clearSheetFilters">
+          Clear All
+        </button>
+        <button class="sheet-apply-btn" id="applySheetFilters">
+          Show Results
+        </button>
+      </div>
+    </div>
+
+    <!-- CART DRAWER -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div
+      class="cart-drawer"
+      id="cartDrawer"
+      role="dialog"
+      aria-label="Shopping Cart"
+    >
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+          <i class="fas fa-shopping-bag"></i>
+          <span>Cart (<span id="cartItemCount">0</span>)</span>
+        </div>
+        <button class="cart-close" id="closeCartBtn" aria-label="Close cart">
+          ×
+        </button>
+      </div>
+      <div class="cart-items-list" id="cartItemsList">
+        <div class="cart-empty">
+          <div class="cart-empty-icon">🛍️</div>
+          <p>Your cart is empty</p>
+          <span>Add items to get started</span>
+        </div>
+      </div>
+      <div class="cart-drawer-footer">
+        <div class="cart-summary">
+          <div class="cart-row">
+            <span>Subtotal</span><span id="cartSubtotal">₦0</span>
+          </div>
+          <div class="cart-row">
+            <span>Delivery</span
+            ><span class="free-text">Free above ₦20,000</span>
+          </div>
+          <div class="cart-row cart-total-row">
+            <span>Total</span><span id="cartTotalPrice">₦0</span>
+          </div>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn">
+          <i class="fas fa-lock"></i> Proceed to Checkout
+        </button>
+        <p class="cart-note">🔒 Secured by Paystack. 100% safe.</p>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- QUICK VIEW MODAL -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div
+      class="quick-view-modal"
+      id="quickViewModal"
+      role="dialog"
+      aria-label="Product details"
+    >
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
