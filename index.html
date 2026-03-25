@@ -70,6 +70,13 @@
           <button class="nav-icon-btn" title="Wishlist" aria-label="Wishlist">
             <i class="far fa-heart"></i>
             <span class="nav-label">Saved</span>
+            <div
+              class="cart-badge"
+              id="wishlistCount"
+              style="display: none; background: var(--orange)"
+            >
+              0
+            </div>
           </button>
           <button
             class="nav-icon-btn"
@@ -835,6 +842,17 @@
             <span>Total</span><span id="cartTotalPrice">₦0</span>
           </div>
         </div>
+        <!-- Coupon Code -->
+        <div class="coupon-row">
+          <input
+            type="text"
+            id="couponInput"
+            placeholder="Coupon code (e.g. DEVMART10)"
+            class="coupon-input"
+          />
+          <button id="couponApplyBtn" class="coupon-btn">Apply</button>
+        </div>
+        <p class="coupon-msg" id="couponMsg"></p>
         <button class="checkout-btn" id="checkoutBtn">
           <i class="fas fa-lock"></i> Proceed to Checkout
         </button>
@@ -909,3 +927,84 @@
     <script src="app.js"></script>
   </body>
 </html>
+<!-- CHECKOUT MODAL -->
+<div class="checkout-overlay" id="checkoutOverlay"></div>
+<div
+  class="checkout-modal"
+  id="checkoutModal"
+  role="dialog"
+  aria-label="Checkout"
+></div>
+
+<!-- HOW IT WORKS MODAL -->
+<div class="hiw-overlay" id="hiwOverlay"></div>
+<div
+  class="hiw-modal"
+  id="howItWorksModal"
+  role="dialog"
+  aria-label="How it works"
+>
+  <button class="hiw-close" id="hiwClose" aria-label="Close">×</button>
+  <h3 class="hiw-title">How Dev_Mart Works</h3>
+  <div class="hiw-steps">
+    <div class="hiw-step">
+      <div class="hiw-step-num">1</div>
+      <div class="hiw-step-icon">🔍</div>
+      <div class="hiw-step-title">Browse & Search</div>
+      <p>
+        Explore thousands of fabrics, Nigerian food, and groceries from verified
+        Lagos vendors.
+      </p>
+    </div>
+    <div class="hiw-step-arrow">→</div>
+    <div class="hiw-step">
+      <div class="hiw-step-num">2</div>
+      <div class="hiw-step-icon">🛒</div>
+      <div class="hiw-step-title">Add to Cart</div>
+      <p>
+        Select items, pick your quantity, and add them to your cart with one
+        tap.
+      </p>
+    </div>
+    <div class="hiw-step-arrow">→</div>
+    <div class="hiw-step">
+      <div class="hiw-step-num">3</div>
+      <div class="hiw-step-icon">📍</div>
+      <div class="hiw-step-title">Enter Delivery Details</div>
+      <p>
+        Provide your Lagos address and choose same-day, next-day, or pickup
+        delivery.
+      </p>
+    </div>
+    <div class="hiw-step-arrow">→</div>
+    <div class="hiw-step">
+      <div class="hiw-step-num">4</div>
+      <div class="hiw-step-icon">💳</div>
+      <div class="hiw-step-title">Pay Securely</div>
+      <p>
+        Pay on delivery or via Paystack. 100% secure. No card details stored.
+      </p>
+    </div>
+    <div class="hiw-step-arrow">→</div>
+    <div class="hiw-step">
+      <div class="hiw-step-num">5</div>
+      <div class="hiw-step-icon">🎉</div>
+      <div class="hiw-step-title">Receive & Enjoy</div>
+      <p>
+        Your order is delivered fresh. Rate your vendor and earn loyalty
+        rewards.
+      </p>
+    </div>
+  </div>
+  <button
+    class="hiw-cta"
+    onclick="
+      closeHIW();
+      document
+        .getElementById('productsSection')
+        .scrollIntoView({ behavior: 'smooth' });
+    "
+  >
+    Start Shopping <i class="fas fa-arrow-right"></i>
+  </button>
+</div>
