@@ -180,7 +180,11 @@
             <div class="hcard-label">Nigerian Food</div>
           </div>
           <div class="hcard hcard3">
-            <img src="Assets/BOLDAN_1.jpg" alt="Premium Fabric" loading="eager" />
+            <img
+              src="Assets/BOLDAN_1.jpg"
+              alt="Premium Fabric"
+              loading="eager"
+            />
             <div class="hcard-label">Premium Brocade</div>
           </div>
         </div>
@@ -265,11 +269,7 @@
             </div>
           </div>
           <div class="cat-card" onclick="filterCategory('Groceries')">
-            <img
-              src="Assets/groceries.jpg"
-              alt="Groceries"
-              loading="lazy"
-            />
+            <img src="Assets/groceries.jpg" alt="Groceries" loading="lazy" />
             <div class="cat-card-overlay">
               <div class="cat-card-tag">Groceries</div>
               <div class="cat-card-count">200+ Items</div>
@@ -457,6 +457,146 @@
         </p>
       </div>
       <div class="ai-grid" id="aiRecommendations"></div>
+    </section>
+
+    <!-- RECENTLY VIEWED -->
+    <section
+      class="recently-section"
+      id="recentlySection"
+      style="display: none"
+    >
+      <div class="recently-inner">
+        <div class="recently-header">
+          <div class="section-label">
+            <i class="fas fa-history"></i> Your History
+          </div>
+          <h2>Recently Viewed</h2>
+        </div>
+        <div class="recently-grid" id="recentlyGrid"></div>
+      </div>
+    </section>
+
+    <!-- VENDOR HIGHLIGHTS -->
+    <section class="vendors-section">
+      <div class="vendors-inner">
+        <div class="section-header">
+          <div class="section-label">
+            <i class="fas fa-store"></i> Top Sellers
+          </div>
+          <h2>Our Star Vendors</h2>
+          <p class="section-desc">
+            Trusted sellers with the highest satisfaction ratings in Lagos
+          </p>
+        </div>
+        <div class="vendors-grid">
+          <div class="vendor-card">
+            <div
+              class="vendor-avatar"
+              style="background: linear-gradient(135deg, #006b3f, #00a651)"
+            >
+              A
+            </div>
+            <div class="vendor-info">
+              <div class="vendor-name">AbikeTextiles</div>
+              <div class="vendor-location">
+                <i class="fas fa-map-marker-alt"></i> Balogun Market
+              </div>
+              <div class="vendor-stats">
+                <span>⭐ 4.9</span><span>•</span><span>342 reviews</span>
+              </div>
+            </div>
+            <span class="vendor-badge">Top Seller</span>
+          </div>
+          <div class="vendor-card">
+            <div
+              class="vendor-avatar"
+              style="background: linear-gradient(135deg, #e8440a, #ff6b35)"
+            >
+              P
+            </div>
+            <div class="vendor-info">
+              <div class="vendor-name">PartyRice NG</div>
+              <div class="vendor-location">
+                <i class="fas fa-map-marker-alt"></i> Victoria Island
+              </div>
+              <div class="vendor-stats">
+                <span>⭐ 4.9</span><span>•</span><span>892 reviews</span>
+              </div>
+            </div>
+            <span class="vendor-badge">Most Loved</span>
+          </div>
+          <div class="vendor-card">
+            <div
+              class="vendor-avatar"
+              style="background: linear-gradient(135deg, #c89b3c, #f0c060)"
+            >
+              H
+            </div>
+            <div class="vendor-info">
+              <div class="vendor-name">HollandaisHub</div>
+              <div class="vendor-location">
+                <i class="fas fa-map-marker-alt"></i> Balogun Market
+              </div>
+              <div class="vendor-stats">
+                <span>⭐ 5.0</span><span>•</span><span>412 reviews</span>
+              </div>
+            </div>
+            <span class="vendor-badge">Premium</span>
+          </div>
+          <div class="vendor-card">
+            <div
+              class="vendor-avatar"
+              style="background: linear-gradient(135deg, #1a2636, #3a4a5c)"
+            >
+              F
+            </div>
+            <div class="vendor-info">
+              <div class="vendor-name">FarmEggsNG</div>
+              <div class="vendor-location">
+                <i class="fas fa-map-marker-alt"></i> Agege, Lagos
+              </div>
+              <div class="vendor-stats">
+                <span>⭐ 4.9</span><span>•</span><span>623 reviews</span>
+              </div>
+            </div>
+            <span class="vendor-badge">Fresh Daily</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+      <div class="newsletter-inner">
+        <div class="newsletter-content">
+          <div class="newsletter-icon">📬</div>
+          <h2>Get Lagos Deals First</h2>
+          <p>
+            Subscribe for flash sales, new arrivals, and exclusive vendor
+            discounts — straight to your inbox.
+          </p>
+        </div>
+        <form
+          class="newsletter-form"
+          id="newsletterForm"
+          onsubmit="handleNewsletter(event)"
+        >
+          <div class="newsletter-input-wrap">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+              id="newsletterEmail"
+            />
+            <button type="submit">
+              Subscribe <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          <p class="newsletter-note">
+            🔒 No spam. Unsubscribe anytime. Your data is safe with us.
+          </p>
+        </form>
+      </div>
     </section>
 
     <!-- FOOTER -->
@@ -702,9 +842,6 @@
       </div>
     </div>
 
-    <!-- TOAST -->
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
     <!-- QUICK VIEW MODAL -->
     <div class="modal-overlay" id="modalOverlay"></div>
     <div
@@ -716,6 +853,58 @@
       <button class="modal-close" id="modalClose" aria-label="Close">×</button>
       <div class="modal-content" id="modalContent"></div>
     </div>
+
+    <!-- SEARCH SUGGESTIONS -->
+    <div class="search-suggestions" id="searchSuggestions"></div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- WHATSAPP FLOAT -->
+    <a
+      href="https://wa.me/2340827721006?text=Hi%20Dev_Mart!%20I%27d%20like%20to%20place%20an%20order."
+      class="whatsapp-float"
+      aria-label="Chat on WhatsApp"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="fab fa-whatsapp"></i>
+      <span class="whatsapp-label">Chat with us</span>
+    </a>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+      <button class="mbn-item active" onclick="scrollToTop()">
+        <i class="fas fa-home"></i><span>Home</span>
+      </button>
+      <button
+        class="mbn-item"
+        onclick="
+          filterCategory('all');
+          document
+            .getElementById('productsSection')
+            .scrollIntoView({ behavior: 'smooth' });
+        "
+      >
+        <i class="fas fa-th-large"></i><span>Shop</span>
+      </button>
+      <button class="mbn-item" id="mbnCartBtn">
+        <i class="fas fa-shopping-bag"></i>
+        <span>Cart</span>
+        <div class="mbn-badge" id="mbnCartCount">0</div>
+      </button>
+      <button class="mbn-item" onclick="showToast('❤️ Wishlist coming soon!')">
+        <i class="far fa-heart"></i><span>Saved</span>
+      </button>
+      <button class="mbn-item" onclick="showToast('👤 Account coming soon!')">
+        <i class="far fa-user"></i><span>Account</span>
+      </button>
+    </nav>
 
     <script src="app.js"></script>
   </body>

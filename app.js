@@ -228,8 +228,7 @@ const products = [
     oldPrice: 5000,
     rating: 4.9,
     ratingCount: 623,
-    image:
-      "Assets/Stacked Egg.jpg",
+    image: "Assets/Stacked Egg.jpg",
     verified: true,
     hot: true,
     desc: "Farm-fresh brown eggs. Collected daily from local poultry farms. No chemicals, no hormones. Full crate of 30. Order 2 crates for ₦7,500.",
@@ -923,6 +922,154 @@ function escHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+// ── RECENTLY VIEWED ────────────────────────────────────────
+const recentlyViewed = [];
+const MAX_RECENT = 6;
+
+function addToRecentlyViewed(product) {
+  const exists = recentlyViewed.findIndex((p) => p.id === product.id);
+  if (exists > -1) recentlyViewed.splice(exists, 1);
+  recentlyViewed.unshift(product);
+  if (recentlyViewed.length > MAX_RECENT) recentlyViewed.pop();
+  renderRecentlyViewed();
+}
+
+function renderRecentlyViewed() {
+  const section = document.getElementById("recentlySection");
+  const grid = document.getElementById("recentlyGrid");
+  if (!section || !grid) return;
+  if (recentlyViewed.length === 0) {
+    section.style.display = "none";
+    return;
+  }
+  section.style.display = "";
+  grid.innerHTML = recentlyViewed
+    .map(
+      (p) => `
+    <div class="recently-card" onclick="openQuickView(${p.id})">
+      <img src="${p.image}" alt="${escHtml(p.name)}" loading="lazy"
+           onerror="this.parentElement.style.background='var(--light)'">
+      <div class="recently-card-body">
+        <div class="recently-card-name">${escHtml(p.name)}</div>
+        <div class="recently-card-price">₦${p.price.toLocaleString()}</div>
+      </div>
+    </div>`,
+    )
+    .join("");
+}
+
+// ── SEARCH SUGGESTIONS ─────────────────────────────────────
+const suggestionBox = document.getElementById("searchSuggestions");
+let suggTimeout;
+
+function positionSuggestions(inputEl) {
+  const rect = inputEl.getBoundingClientRect();
+  suggestionBox.style.top = rect.bottom + window.scrollY + 8 + "px";
+  suggestionBox.style.left = rect.left + "px";
+  suggestionBox.style.width = rect.width + "px";
+}
+
+function showSuggestions(val, inputEl) {
+  clearTimeout(suggTimeout);
+  if (!val || val.length < 2) {
+    suggestionBox.classList.remove("open");
+    return;
+  }
+  suggTimeout = setTimeout(() => {
+    const matches = products
+      .filter(
+        (p) =>
+          p.name.toLowerCase().includes(val.toLowerCase()) ||
+          p.category.toLowerCase().includes(val.toLowerCase()),
+      )
+      .slice(0, 5);
+    if (matches.length === 0) {
+      suggestionBox.classList.remove("open");
+      return;
+    }
+    positionSuggestions(inputEl);
+    suggestionBox.innerHTML = matches
+      .map(
+        (p) => `
+      <div class="suggestion-item" data-id="${p.id}">
+        <img src="${p.image}" alt="" onerror="this.style.display='none'">
+        <span>${escHtml(p.name)}</span>
+        <span class="suggestion-price">₦${p.price.toLocaleString()}</span>
+      </div>`,
+      )
+      .join("");
+    suggestionBox.classList.add("open");
+    suggestionBox.querySelectorAll(".suggestion-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        openQuickView(+item.dataset.id);
+        suggestionBox.classList.remove("open");
+      });
+    });
+  }, 200);
+}
+
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  showSuggestions(e.target.value, e.target);
+});
+document.addEventListener("click", (e) => {
+  if (
+    !e.target.closest(".search-box") &&
+    !e.target.closest(".search-suggestions")
+  ) {
+    suggestionBox.classList.remove("open");
+  }
+});
+
+// ── BACK TO TOP ─────────────────────────────────────────────
+const backToTopBtn = document.getElementById("backToTop");
+window.addEventListener(
+  "scroll",
+  () => {
+    if (window.scrollY > 400) backToTopBtn.classList.add("visible");
+    else backToTopBtn.classList.remove("visible");
+  },
+  { passive: true },
+);
+backToTopBtn.addEventListener("click", () =>
+  window.scrollTo({ top: 0, behavior: "smooth" }),
+);
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// ── MOBILE BOTTOM NAV CART SYNC ───────────────────────────
+const mbnCartBtn = document.getElementById("mbnCartBtn");
+if (mbnCartBtn) mbnCartBtn.addEventListener("click", openCart);
+
+function updateMbnCartBadge() {
+  const badge = document.getElementById("mbnCartCount");
+  if (badge) badge.textContent = cart.reduce((s, i) => s + i.quantity, 0);
+}
+
+// Patch updateCartBadge to also update mobile bottom nav
+const _origUpdateCartBadge = updateCartBadge;
+function updateCartBadge() {
+  _origUpdateCartBadge();
+  updateMbnCartBadge();
+}
+
+// ── NEWSLETTER ─────────────────────────────────────────────
+function handleNewsletter(e) {
+  e.preventDefault();
+  const email = document.getElementById("newsletterEmail").value;
+  showToast(`🎉 Thanks! ${email} subscribed to Dev_Mart deals!`);
+  document.getElementById("newsletterForm").reset();
+}
+
+// ── PATCH openQuickView for recently viewed ─────────────────
+const _origOpenQuickView = openQuickView;
+function openQuickView(id) {
+  const p = products.find((x) => x.id === id);
+  if (p) addToRecentlyViewed(p);
+  _origOpenQuickView(id);
+}
+
 // ── INIT ──────────────────────────────────────────────────
 function init() {
   renderProducts();
@@ -930,5 +1077,6 @@ function init() {
   updateCartUI();
   renderAI();
   startTimer();
+  renderRecentlyViewed();
 }
 init();
