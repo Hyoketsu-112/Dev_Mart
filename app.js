@@ -950,6 +950,199 @@ document.getElementById("wishlistAddAllBtn").addEventListener("click", () => {
 const mbnWlBtn = document.getElementById("mbnWishlistBtn");
 if (mbnWlBtn) mbnWlBtn.addEventListener("click", openWishlist);
 
+// ── ACCOUNT DRAWER ────────────────────────────────────────
+function openAccount() {
+  loadProfileForm();
+  renderAccountTab("profile");
+  document.getElementById("accountDrawer").classList.add("open");
+  document.getElementById("accountOverlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeAccount() {
+  document.getElementById("accountDrawer").classList.remove("open");
+  document.getElementById("accountOverlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function getProfile() {
+  return lsGet("dm_profile", { first: "", last: "", phone: "", email: "" });
+}
+function saveProfile(p) {
+  lsSet("dm_profile", p);
+}
+
+function loadProfileForm() {
+  const p = getProfile();
+  const set = (id, v) => {
+    const el = document.getElementById(id);
+    if (el) el.value = v;
+  };
+  set("profFirst", p.first);
+  set("profLast", p.last);
+  set("profPhone", p.phone);
+  set("profEmail", p.email);
+  updateProfileHeader(p);
+  renderAccountStats();
+}
+function updateProfileHeader(p) {
+  const nameEl = document.getElementById("acctDisplayName");
+  const emailEl = document.getElementById("acctDisplayEmail");
+  const avatarEl = document.getElementById("acctAvatar");
+  const name = [p.first, p.last].filter(Boolean).join(" ");
+  if (nameEl) nameEl.textContent = name || "Guest User";
+  if (emailEl) emailEl.textContent = p.email || "No email set";
+  if (avatarEl) {
+    const initials = [p.first[0], p.last[0]]
+      .filter(Boolean)
+      .join("")
+      .toUpperCase();
+    avatarEl.textContent = initials || "👤";
+    avatarEl.style.fontSize = initials ? "22px" : "28px";
+  }
+}
+function renderAccountStats() {
+  const el = document.getElementById("acctStatsRow");
+  if (!el) return;
+  const orders = lsGet("dm_orders", []);
+  const wishCount = Object.keys(wishlist).length;
+  const total = orders.reduce((s, o) => s + (o.total || 0), 0);
+  el.innerHTML = `
+    <div class="acct-stat"><div class="acct-stat-num">${orders.length}</div><div class="acct-stat-label">Orders</div></div>
+    <div class="acct-stat"><div class="acct-stat-num">${wishCount}</div><div class="acct-stat-label">Saved</div></div>
+    <div class="acct-stat"><div class="acct-stat-num">₦${total > 0 ? (total / 1000).toFixed(0) + "k" : "0"}</div><div class="acct-stat-label">Spent</div></div>`;
+}
+
+function renderOrderHistory() {
+  const el = document.getElementById("acctOrdersList");
+  if (!el) return;
+  const orders = lsGet("dm_orders", []);
+  if (orders.length === 0) {
+    el.innerHTML = `<div class="cart-empty" style="min-height:220px;"><div class="cart-empty-icon">📦</div><p>No orders yet</p><span>Your order history will appear here after you shop</span></div>`;
+    return;
+  }
+  el.innerHTML = orders
+    .map((o) => {
+      const date = new Date(o.date);
+      const dateStr = date.toLocaleDateString("en-NG", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      });
+      const timeStr = date.toLocaleTimeString("en-NG", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      const addr = o.address || {};
+      const dLabel =
+        addr.delivery === "same_day"
+          ? "Same-Day"
+          : addr.delivery === "next_day"
+            ? "Next-Day"
+            : "Pickup";
+      const itemCount = (o.items || []).reduce((s, i) => s + i.quantity, 0);
+      return `<div class="acct-order-card">
+      <div class="acct-order-header">
+        <div><div class="acct-order-id">${escHtml(o.id)}</div><div class="acct-order-date">${dateStr} · ${timeStr}</div></div>
+        <div class="acct-order-total">₦${(o.total || 0).toLocaleString()}</div>
+      </div>
+      <div class="acct-order-meta">
+        <span class="acct-order-badge"><i class="fas fa-check-circle"></i> Placed</span>
+        <span class="acct-order-info"><i class="fas fa-box"></i> ${itemCount} item${itemCount !== 1 ? "s" : ""}</span>
+        <span class="acct-order-info"><i class="fas fa-motorcycle"></i> ${dLabel}</span>
+      </div>
+      <div class="acct-order-items">
+        ${(o.items || [])
+          .slice(0, 3)
+          .map(
+            (i) =>
+              `<span class="acct-order-item-chip">${escHtml(i.name.length > 28 ? i.name.slice(0, 28) + "…" : i.name)} ×${i.quantity}</span>`,
+          )
+          .join("")}
+        ${(o.items || []).length > 3 ? `<span class="acct-order-item-chip acct-chip-more">+${o.items.length - 3} more</span>` : ""}
+      </div>
+      ${addr.area ? `<div class="acct-order-addr"><i class="fas fa-map-marker-alt"></i> ${escHtml(addr.area)}${addr.street ? " · " + escHtml(addr.street) : ""}</div>` : ""}
+    </div>`;
+    })
+    .join("");
+}
+
+function renderSavedAddresses() {
+  const el = document.getElementById("acctAddressesList");
+  if (!el) return;
+  const orders = lsGet("dm_orders", []);
+  const seen = new Set();
+  const addrs = orders
+    .map((o) => o.address)
+    .filter((a) => a && a.street && a.area)
+    .filter((a) => {
+      const key = `${a.area}|${a.street}`.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  if (addrs.length === 0) {
+    el.innerHTML = `<div class="cart-empty" style="min-height:200px;"><div class="cart-empty-icon">📍</div><p>No saved addresses</p><span>Addresses from your orders appear here automatically</span></div>`;
+    return;
+  }
+  el.innerHTML = addrs
+    .map(
+      (a, idx) => `
+    <div class="acct-addr-card">
+      <div class="acct-addr-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="acct-addr-body">
+        <div class="acct-addr-name">${escHtml((a.first || "") + " " + (a.last || "")).trim()}</div>
+        <div class="acct-addr-line">${escHtml(a.street)}</div>
+        <div class="acct-addr-line">${escHtml(a.area)}, Lagos</div>
+        ${a.phone ? `<div class="acct-addr-phone"><i class="fas fa-phone"></i> ${escHtml(a.phone)}</div>` : ""}
+      </div>
+      ${idx === 0 ? `<span class="acct-addr-default">Default</span>` : ""}
+    </div>`,
+    )
+    .join("");
+}
+
+function renderAccountTab(tab) {
+  document
+    .querySelectorAll(".acct-tab")
+    .forEach((b) => b.classList.toggle("active", b.dataset.tab === tab));
+  document
+    .querySelectorAll(".acct-panel")
+    .forEach((p) => p.classList.toggle("active", p.id === `acctPanel-${tab}`));
+  if (tab === "orders") renderOrderHistory();
+  if (tab === "addresses") renderSavedAddresses();
+}
+
+document
+  .getElementById("accountIconBtn")
+  .addEventListener("click", openAccount);
+document
+  .getElementById("closeAccountBtn")
+  .addEventListener("click", closeAccount);
+document.getElementById("accountOverlay").addEventListener("click", (e) => {
+  if (e.target === document.getElementById("accountOverlay")) closeAccount();
+});
+document
+  .querySelectorAll(".acct-tab")
+  .forEach((btn) =>
+    btn.addEventListener("click", () => renderAccountTab(btn.dataset.tab)),
+  );
+document.getElementById("profileForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const get = (id) => (document.getElementById(id) || {}).value || "";
+  const p = {
+    first: get("profFirst").trim(),
+    last: get("profLast").trim(),
+    phone: get("profPhone").trim(),
+    email: get("profEmail").trim(),
+  };
+  saveProfile(p);
+  updateProfileHeader(p);
+  renderAccountStats();
+  showToast("✅ Profile saved!");
+});
+const mbnAccBtn = document.getElementById("mbnAccountBtn");
+if (mbnAccBtn) mbnAccBtn.addEventListener("click", openAccount);
+
 function openCart() {
   document.getElementById("cartDrawer").classList.add("open");
   document.getElementById("cartOverlay").classList.add("open");
@@ -1556,6 +1749,7 @@ document.addEventListener("keydown", (e) => {
   closeModal();
   closeCart();
   closeWishlist();
+  closeAccount();
   closeFilterSheet();
   closeCheckoutModal();
   closeHIW();

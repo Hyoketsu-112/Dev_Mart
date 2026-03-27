@@ -4135,3 +4135,363 @@ a {
 [data-theme="dark"] #wishlistDrawer .wl-remove-btn {
   background: rgba(255, 255, 255, 0.08);
 }
+
+/* ══════════════════════════════════════════
+   ACCOUNT DRAWER
+══════════════════════════════════════════ */
+
+/* Tabs */
+.acct-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.acct-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 13px 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -2px;
+  transition: var(--t);
+  cursor: pointer;
+}
+.acct-tab.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+.acct-tab:hover:not(.active) {
+  color: var(--dark);
+  background: var(--light);
+}
+
+/* Panels */
+.acct-panel {
+  display: none;
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+.acct-panel.active {
+  display: block;
+}
+
+/* Avatar row */
+.acct-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding: 16px;
+  background: var(--green-pale);
+  border-radius: 14px;
+}
+.acct-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.acct-display-name {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--dark);
+}
+.acct-display-email {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Profile form */
+.acct-form .addr-field {
+  margin-bottom: 14px;
+}
+.acct-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.acct-form input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--dark);
+  background: #fff;
+  transition: border-color 0.2s;
+}
+.acct-form input:focus {
+  outline: none;
+  border-color: var(--green);
+}
+.acct-save-btn {
+  width: 100%;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: var(--t);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.acct-save-btn:hover {
+  background: var(--green-light);
+}
+
+/* Stats row */
+.acct-stats-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.acct-stat {
+  flex: 1;
+  background: var(--light);
+  border-radius: 12px;
+  padding: 12px 8px;
+  text-align: center;
+}
+.acct-stat-num {
+  font-family: "Syne", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--green);
+}
+.acct-stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Order cards */
+.acct-order-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  transition: var(--t);
+}
+.acct-order-card:hover {
+  border-color: var(--green-light);
+}
+.acct-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.acct-order-id {
+  font-family: "Syne", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+}
+.acct-order-date {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.acct-order-total {
+  font-family: "Syne", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--green);
+}
+.acct-order-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.acct-order-badge {
+  background: var(--green-pale);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.acct-order-info {
+  font-size: 11.5px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.acct-order-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.acct-order-item-chip {
+  background: var(--light);
+  border-radius: 50px;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--mid);
+  font-weight: 500;
+}
+.acct-chip-more {
+  background: var(--orange-pale);
+  color: var(--orange);
+  font-weight: 700;
+}
+.acct-order-addr {
+  font-size: 11.5px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+}
+.acct-order-addr i {
+  color: var(--orange);
+}
+
+/* Address cards */
+.acct-addr-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  transition: var(--t);
+}
+.acct-addr-card:hover {
+  border-color: var(--green-light);
+}
+.acct-addr-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--orange-pale);
+  color: var(--orange);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.acct-addr-body {
+  flex: 1;
+}
+.acct-addr-name {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--dark);
+  margin-bottom: 3px;
+}
+.acct-addr-line {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.acct-addr-phone {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.acct-addr-default {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--green-pale);
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Dark mode */
+[data-theme="dark"] #accountDrawer {
+  background: var(--dark2);
+}
+[data-theme="dark"] #accountDrawer .cart-drawer-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .acct-tabs {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .acct-tab {
+  color: rgba(255, 255, 255, 0.4);
+}
+[data-theme="dark"] .acct-tab.active {
+  color: var(--green-light);
+}
+[data-theme="dark"] .acct-tab:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+}
+[data-theme="dark"] .acct-avatar-row {
+  background: rgba(0, 107, 63, 0.18);
+}
+[data-theme="dark"] .acct-display-name {
+  color: #e2e8f0;
+}
+[data-theme="dark"] .acct-form input {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+[data-theme="dark"] .acct-stat {
+  background: rgba(255, 255, 255, 0.06);
+}
+[data-theme="dark"] .acct-order-card,
+[data-theme="dark"] .acct-addr-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .acct-order-id,
+[data-theme="dark"] .acct-addr-name {
+  color: #e2e8f0;
+}
+[data-theme="dark"] .acct-order-item-chip {
+  background: rgba(255, 255, 255, 0.08);
+  color: #aab;
+}

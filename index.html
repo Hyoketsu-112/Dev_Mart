@@ -94,6 +94,15 @@
           </button>
           <button
             class="nav-icon-btn"
+            id="accountIconBtn"
+            title="My Account"
+            aria-label="Open account"
+          >
+            <i class="far fa-user"></i>
+            <span class="nav-label">Account</span>
+          </button>
+          <button
+            class="nav-icon-btn"
             id="cartIconBtn"
             title="Cart"
             aria-label="Open cart"
@@ -973,10 +982,109 @@
       <button class="mbn-item" id="mbnWishlistBtn">
         <i class="far fa-heart"></i><span>Saved</span>
       </button>
-      <button class="mbn-item" onclick="showToast('👤 Account coming soon!')">
+      <button class="mbn-item" id="mbnAccountBtn">
         <i class="far fa-user"></i><span>Account</span>
       </button>
     </nav>
+
+    <!-- ACCOUNT DRAWER -->
+    <div class="cart-overlay" id="accountOverlay"></div>
+    <div
+      class="cart-drawer"
+      id="accountDrawer"
+      role="dialog"
+      aria-label="My Account"
+    >
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+          <i class="fas fa-user-circle" style="color: var(--green)"></i>
+          <span>My Account</span>
+        </div>
+        <button
+          class="cart-close"
+          id="closeAccountBtn"
+          aria-label="Close account"
+        >
+          ×
+        </button>
+      </div>
+
+      <!-- Account Tabs -->
+      <div class="acct-tabs">
+        <button class="acct-tab active" data-tab="profile">
+          <i class="fas fa-user"></i> Profile
+        </button>
+        <button class="acct-tab" data-tab="orders">
+          <i class="fas fa-box"></i> Orders
+        </button>
+        <button class="acct-tab" data-tab="addresses">
+          <i class="fas fa-map-marker-alt"></i> Addresses
+        </button>
+      </div>
+
+      <!-- Tab: Profile -->
+      <div class="acct-panel active" id="acctPanel-profile">
+        <div class="acct-avatar-row">
+          <div class="acct-avatar" id="acctAvatar">👤</div>
+          <div>
+            <div class="acct-display-name" id="acctDisplayName">Guest User</div>
+            <div class="acct-display-email" id="acctDisplayEmail">Not set</div>
+          </div>
+        </div>
+        <form class="acct-form" id="profileForm" novalidate>
+          <div class="addr-field">
+            <label>First Name</label>
+            <input
+              type="text"
+              id="profFirst"
+              placeholder="Chioma"
+              autocomplete="given-name"
+            />
+          </div>
+          <div class="addr-field">
+            <label>Last Name</label>
+            <input
+              type="text"
+              id="profLast"
+              placeholder="Okafor"
+              autocomplete="family-name"
+            />
+          </div>
+          <div class="addr-field">
+            <label>Phone</label>
+            <input
+              type="tel"
+              id="profPhone"
+              placeholder="0801 234 5678"
+              autocomplete="tel"
+            />
+          </div>
+          <div class="addr-field">
+            <label>Email</label>
+            <input
+              type="email"
+              id="profEmail"
+              placeholder="chioma@example.com"
+              autocomplete="email"
+            />
+          </div>
+          <button type="submit" class="acct-save-btn">
+            <i class="fas fa-check"></i> Save Profile
+          </button>
+        </form>
+        <div class="acct-stats-row" id="acctStatsRow"></div>
+      </div>
+
+      <!-- Tab: Orders -->
+      <div class="acct-panel" id="acctPanel-orders">
+        <div id="acctOrdersList"></div>
+      </div>
+
+      <!-- Tab: Addresses -->
+      <div class="acct-panel" id="acctPanel-addresses">
+        <div id="acctAddressesList"></div>
+      </div>
+    </div>
 
     <!-- CHECKOUT MODAL -->
     <div class="checkout-overlay" id="checkoutOverlay"></div>
