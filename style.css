@@ -4106,3 +4106,32 @@ a {
   background: var(--green-pale);
   transform: translateY(-3px);
 }
+
+/* ══════════════════════════════════════════
+   WISHLIST DRAWER (reuses cart-drawer base)
+   Extra specifics only
+══════════════════════════════════════════ */
+#wishlistDrawer .cart-item-info {
+  flex: 1;
+}
+/* Dark mode */
+[data-theme="dark"] #wishlistDrawer {
+  background: var(--dark2);
+  color: #e2e8f0;
+}
+[data-theme="dark"] #wishlistDrawer .cart-drawer-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] #wishlistDrawer .cart-drawer-footer {
+  border-top-color: rgba(255, 255, 255, 0.08);
+  background: var(--dark2);
+}
+[data-theme="dark"] #wishlistDrawer .cart-item {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+[data-theme="dark"] #wishlistDrawer .cart-item-name {
+  color: #e2e8f0;
+}
+[data-theme="dark"] #wishlistDrawer .wl-remove-btn {
+  background: rgba(255, 255, 255, 0.08);
+}

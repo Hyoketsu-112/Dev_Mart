@@ -833,7 +833,123 @@ if (cInp)
     if (e.key === "Enter") applyCoupon();
   });
 
-// ── CART DRAWER ───────────────────────────────────────────
+// ── WISHLIST DRAWER ───────────────────────────────────────
+function openWishlist() {
+  renderWishlistUI();
+  document.getElementById("wishlistDrawer").classList.add("open");
+  document.getElementById("wishlistOverlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeWishlist() {
+  document.getElementById("wishlistDrawer").classList.remove("open");
+  document.getElementById("wishlistOverlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+function renderWishlistUI() {
+  const list = document.getElementById("wishlistItemsList");
+  const footer = document.getElementById("wishlistFooter");
+  const countEl = document.getElementById("wishlistItemCount");
+  if (!list) return;
+
+  const ids = Object.keys(wishlist).map(Number);
+  const items = ids
+    .map((id) => products.find((p) => p.id === id))
+    .filter(Boolean);
+
+  if (countEl) countEl.textContent = items.length;
+  updateWishlistBadge();
+
+  if (items.length === 0) {
+    list.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🤍</div><p>Nothing saved yet</p><span>Tap the heart on any product to save it here</span></div>`;
+    if (footer) footer.style.display = "none";
+    return;
+  }
+
+  if (footer) footer.style.display = "block";
+
+  list.innerHTML = items
+    .map(
+      (p) => `
+    <div class="cart-item" data-wl-id="${p.id}">
+      <img class="cart-item-img" src="${p.image}" alt="${escHtml(p.name)}" onerror="this.style.display='none'">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${escHtml(p.name)}</div>
+        <div class="cart-item-price">₦${p.price.toLocaleString()}</div>
+        <div class="cart-item-controls" style="gap:8px;margin-top:8px;">
+          <button class="wl-add-btn" data-id="${p.id}" style="background:var(--green);color:#fff;border:none;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;cursor:pointer;"${p.inStock === false ? " disabled style='opacity:.5;cursor:not-allowed;'" : ""}>
+            <i class="fas fa-shopping-bag"></i> ${p.inStock === false ? "Out of Stock" : "Add to Cart"}
+          </button>
+          <button class="wl-remove-btn" data-id="${p.id}" style="background:var(--light);border:none;padding:6px 10px;border-radius:50px;font-size:12px;color:var(--orange);font-weight:600;cursor:pointer;">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>
+      <div class="cart-item-total" style="font-size:13px;color:var(--muted);">${p.inStock === false ? '<span style="color:var(--orange);font-size:11px;">Out of Stock</span>' : ""}</div>
+    </div>`,
+    )
+    .join("");
+
+  list.querySelectorAll(".wl-add-btn:not([disabled])").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const p = products.find((x) => x.id === +btn.dataset.id);
+      if (p) {
+        addToCart(p, 1);
+        btn.innerHTML = '<i class="fas fa-check"></i> Added!';
+        btn.style.background = "var(--green-light)";
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Add to Cart';
+          btn.style.background = "var(--green)";
+        }, 1400);
+      }
+    });
+  });
+
+  list.querySelectorAll(".wl-remove-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = +btn.dataset.id;
+      delete wishlist[id];
+      saveWL();
+      // sync heart icons on product grid
+      document
+        .querySelectorAll(`.product-wishlist[data-id="${id}"]`)
+        .forEach((b) => {
+          b.querySelector("i").classList.replace("fas", "far");
+          b.classList.remove("wishlisted");
+        });
+      renderWishlistUI();
+      showToast("Removed from wishlist");
+    });
+  });
+}
+
+document
+  .getElementById("wishlistIconBtn")
+  .addEventListener("click", openWishlist);
+document
+  .getElementById("closeWishlistBtn")
+  .addEventListener("click", closeWishlist);
+document.getElementById("wishlistOverlay").addEventListener("click", (e) => {
+  if (e.target === document.getElementById("wishlistOverlay")) closeWishlist();
+});
+document.getElementById("wishlistAddAllBtn").addEventListener("click", () => {
+  const ids = Object.keys(wishlist).map(Number);
+  const items = ids
+    .map((id) => products.find((p) => p.id === id))
+    .filter((p) => p && p.inStock !== false);
+  if (items.length === 0) {
+    showToast("⚠️ No in-stock items to add");
+    return;
+  }
+  items.forEach((p) => addToCart(p, 1));
+  showToast(
+    `🛍️ ${items.length} item${items.length !== 1 ? "s" : ""} added to cart!`,
+  );
+  closeWishlist();
+  openCart();
+});
+const mbnWlBtn = document.getElementById("mbnWishlistBtn");
+if (mbnWlBtn) mbnWlBtn.addEventListener("click", openWishlist);
+
 function openCart() {
   document.getElementById("cartDrawer").classList.add("open");
   document.getElementById("cartOverlay").classList.add("open");
@@ -1439,6 +1555,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key !== "Escape") return;
   closeModal();
   closeCart();
+  closeWishlist();
   closeFilterSheet();
   closeCheckoutModal();
   closeHIW();

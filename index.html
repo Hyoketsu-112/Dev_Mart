@@ -67,11 +67,21 @@
           >
             <i class="fas fa-search"></i>
           </button>
-          <button class="nav-icon-btn" id="darkModeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <button
+            class="nav-icon-btn"
+            id="darkModeBtn"
+            title="Toggle dark mode"
+            aria-label="Toggle dark mode"
+          >
             <i class="fas fa-moon" id="darkModeIcon"></i>
             <span class="nav-label">Theme</span>
           </button>
-          <button class="nav-icon-btn" title="Wishlist" aria-label="Wishlist">
+          <button
+            class="nav-icon-btn"
+            id="wishlistIconBtn"
+            title="Wishlist"
+            aria-label="Open wishlist"
+          >
             <i class="far fa-heart"></i>
             <span class="nav-label">Saved</span>
             <div
@@ -809,6 +819,46 @@
       </div>
     </div>
 
+    <!-- WISHLIST DRAWER -->
+    <div class="cart-overlay" id="wishlistOverlay"></div>
+    <div
+      class="cart-drawer"
+      id="wishlistDrawer"
+      role="dialog"
+      aria-label="Saved Items"
+    >
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+          <i class="fas fa-heart" style="color: var(--orange)"></i>
+          <span>Saved (<span id="wishlistItemCount">0</span>)</span>
+        </div>
+        <button
+          class="cart-close"
+          id="closeWishlistBtn"
+          aria-label="Close wishlist"
+        >
+          ×
+        </button>
+      </div>
+      <div class="cart-items-list" id="wishlistItemsList">
+        <div class="cart-empty">
+          <div class="cart-empty-icon">🤍</div>
+          <p>Nothing saved yet</p>
+          <span>Tap the heart on any product to save it here</span>
+        </div>
+      </div>
+      <div class="cart-drawer-footer" id="wishlistFooter" style="display: none">
+        <button
+          class="checkout-btn"
+          id="wishlistAddAllBtn"
+          style="background: var(--orange)"
+        >
+          <i class="fas fa-shopping-bag"></i> Add All to Cart
+        </button>
+        <p class="cart-note">Items saved locally on this device</p>
+      </div>
+    </div>
+
     <!-- CART DRAWER -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <div
@@ -920,19 +970,31 @@
         <span>Cart</span>
         <div class="mbn-badge" id="mbnCartCount">0</div>
       </button>
-      <button class="mbn-item" onclick="showToast('❤️ Wishlist coming soon!')">
+      <button class="mbn-item" id="mbnWishlistBtn">
         <i class="far fa-heart"></i><span>Saved</span>
       </button>
       <button class="mbn-item" onclick="showToast('👤 Account coming soon!')">
         <i class="far fa-user"></i><span>Account</span>
+      </button>
+    </nav>
 
     <!-- CHECKOUT MODAL -->
     <div class="checkout-overlay" id="checkoutOverlay"></div>
-    <div class="checkout-modal" id="checkoutModal" role="dialog" aria-label="Checkout"></div>
+    <div
+      class="checkout-modal"
+      id="checkoutModal"
+      role="dialog"
+      aria-label="Checkout"
+    ></div>
 
     <!-- HOW IT WORKS MODAL -->
     <div class="hiw-overlay" id="hiwOverlay"></div>
-    <div class="hiw-modal" id="howItWorksModal" role="dialog" aria-label="How Dev_Mart works">
+    <div
+      class="hiw-modal"
+      id="howItWorksModal"
+      role="dialog"
+      aria-label="How Dev_Mart works"
+    >
       <button class="hiw-close" id="hiwClose" aria-label="Close">×</button>
       <h3 class="hiw-title">How Dev_Mart Works</h3>
       <div class="hiw-steps">
@@ -940,35 +1002,48 @@
           <div class="hiw-step-num">1</div>
           <div class="hiw-step-icon">🔍</div>
           <div class="hiw-step-title">Browse &amp; Search</div>
-          <p>Explore fabrics, Nigerian food &amp; groceries from verified Lagos vendors.</p>
+          <p>
+            Explore fabrics, Nigerian food &amp; groceries from verified Lagos
+            vendors.
+          </p>
         </div>
         <div class="hiw-step-arrow">→</div>
         <div class="hiw-step">
           <div class="hiw-step-num">2</div>
           <div class="hiw-step-icon">🛒</div>
           <div class="hiw-step-title">Add to Cart</div>
-          <p>Pick your quantity and add items with one tap. Your cart saves automatically.</p>
+          <p>
+            Pick your quantity and add items with one tap. Your cart saves
+            automatically.
+          </p>
         </div>
         <div class="hiw-step-arrow">→</div>
         <div class="hiw-step">
           <div class="hiw-step-num">3</div>
           <div class="hiw-step-icon">📍</div>
           <div class="hiw-step-title">Delivery Details</div>
-          <p>Enter your Lagos address and choose same-day, next-day, or pickup.</p>
+          <p>
+            Enter your Lagos address and choose same-day, next-day, or pickup.
+          </p>
         </div>
         <div class="hiw-step-arrow">→</div>
         <div class="hiw-step">
           <div class="hiw-step-num">4</div>
           <div class="hiw-step-icon">💳</div>
           <div class="hiw-step-title">Pay Securely</div>
-          <p>Pay on delivery or via Paystack. 100% secure. Use coupons for extra savings.</p>
+          <p>
+            Pay on delivery or via Paystack. 100% secure. Use coupons for extra
+            savings.
+          </p>
         </div>
         <div class="hiw-step-arrow">→</div>
         <div class="hiw-step">
           <div class="hiw-step-num">5</div>
           <div class="hiw-step-icon">🎉</div>
           <div class="hiw-step-title">Receive &amp; Enjoy</div>
-          <p>Your order arrives fresh. Rate your vendor and earn loyalty rewards.</p>
+          <p>
+            Your order arrives fresh. Rate your vendor and earn loyalty rewards.
+          </p>
         </div>
       </div>
       <button class="hiw-cta" id="hiwShopBtn">
@@ -977,7 +1052,7 @@
     </div>
 
     <!-- STICKY CART BAR -->
-    <div class="sticky-cart-bar" id="stickyCartBar" style="display:none;">
+    <div class="sticky-cart-bar" id="stickyCartBar" style="display: none">
       <div class="scb-inner">
         <span class="scb-items" id="scbItems">0 items in cart</span>
         <span class="scb-total" id="scbTotal">₦0</span>
