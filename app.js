@@ -578,11 +578,15 @@ function renderCard(p) {
       <div class="product-name">${escHtml(p.name)}</div>
       <div class="product-rating"><span class="stars">${stars}</span><span class="rating-count">${p.rating} (${p.ratingCount.toLocaleString()})</span></div>
       <div class="product-price-row">
-        <div>
-          <div class="product-price">₦${p.price.toLocaleString()}</div>
-          ${p.oldPrice ? `<div class="product-old-price">₦${p.oldPrice.toLocaleString()}</div>` : ""}
+          <div>
+            <div class="product-price">₦${p.price.toLocaleString()}${p.oldPrice ? ` <span class="discount-pct">-${Math.round((1 - p.price / p.oldPrice) * 100)}%</span>` : ""}</div>
+            ${p.oldPrice ? `<div class="product-old-price">₦${p.oldPrice.toLocaleString()}</div>` : ""}
+          </div>
+          <div class="card-actions-row">
+            <button class="product-share-btn" data-id="${p.id}" aria-label="Share" title="Share"><i class="fas fa-share-nodes"></i></button>
+            <button class="add-to-cart-btn${p.inStock === false ? " disabled" : ""}" data-id="${p.id}" ${p.inStock === false ? `disabled title="Out of stock"` : ""}><i class="fas fa-plus"></i></button>
+          </div>
         </div>
-        <button class="add-to-cart-btn${p.inStock === false ? " disabled" : ""}" data-id="${p.id}" ${p.inStock === false ? `disabled title="Out of stock"` : ""}><i class="fas fa-plus"></i></button>
       </div>
     </div>
   </div>`;
@@ -715,6 +719,7 @@ function updateCartBadge() {
   document.getElementById("cartItemCount").textContent = total;
   const mbn = document.getElementById("mbnCartCount");
   if (mbn) mbn.textContent = total;
+  updateStickyCartBar();
 }
 function updateCartUI() {
   const list = document.getElementById("cartItemsList");
@@ -1236,29 +1241,28 @@ document
       .scrollIntoView({ behavior: "smooth" }),
   );
 
-// ── HOW IT WORKS MODAL (FIXED) ────────────────────────────
-const hiwModal = document.getElementById("howItWorksModal"),
-  hiwOv = document.getElementById("hiwOverlay");
+// ── HOW IT WORKS MODAL ────────────────────────────────────
 function openHIW() {
-  if (!hiwModal) return;
-  hiwModal.classList.add("open");
-  hiwOv.classList.add("open");
+  document.getElementById("howItWorksModal").classList.add("open");
+  document.getElementById("hiwOverlay").classList.add("open");
   document.body.style.overflow = "hidden";
 }
 function closeHIW() {
-  if (!hiwModal) return;
-  hiwModal.classList.remove("open");
-  hiwOv.classList.remove("open");
+  document.getElementById("howItWorksModal").classList.remove("open");
+  document.getElementById("hiwOverlay").classList.remove("open");
   document.body.style.overflow = "";
 }
-const hiwBtn = document.querySelector(".cta-ghost");
-if (hiwBtn) hiwBtn.addEventListener("click", openHIW);
-const hiwClose = document.getElementById("hiwClose");
-if (hiwClose) hiwClose.addEventListener("click", closeHIW);
-if (hiwOv)
-  hiwOv.addEventListener("click", (e) => {
-    if (e.target === hiwOv) closeHIW();
-  });
+document.getElementById("howItWorksBtn").addEventListener("click", openHIW);
+document.getElementById("hiwClose").addEventListener("click", closeHIW);
+document.getElementById("hiwOverlay").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) closeHIW();
+});
+document.getElementById("hiwShopBtn").addEventListener("click", () => {
+  closeHIW();
+  document
+    .getElementById("productsSection")
+    .scrollIntoView({ behavior: "smooth" });
+});
 
 // ── AI RECOMMENDATIONS (weighted, not random) ─────────────
 function renderAI() {
@@ -1440,6 +1444,119 @@ document.addEventListener("keydown", (e) => {
   closeHIW();
 });
 
+// ── DARK MODE ─────────────────────────────────────────────
+(function initDarkMode() {
+  const saved = localStorage.getItem("dm_theme");
+  if (saved === "dark")
+    document.documentElement.setAttribute("data-theme", "dark");
+  function applyIcon() {
+    const isDark =
+      document.documentElement.getAttribute("data-theme") === "dark";
+    const icon = document.getElementById("darkModeIcon");
+    if (icon) {
+      icon.className = isDark ? "fas fa-sun" : "fas fa-moon";
+    }
+  }
+  applyIcon();
+  document.getElementById("darkModeBtn").addEventListener("click", () => {
+    const isDark =
+      document.documentElement.getAttribute("data-theme") === "dark";
+    if (isDark) {
+      document.documentElement.removeAttribute("data-theme");
+      localStorage.setItem("dm_theme", "light");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("dm_theme", "dark");
+    }
+    applyIcon();
+  });
+})();
+
+// ── STICKY CART BAR ───────────────────────────────────────
+function updateStickyCartBar() {
+  const bar = document.getElementById("stickyCartBar");
+  if (!bar) return;
+  const total = cart.reduce((s, i) => s + i.quantity, 0);
+  const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+  if (total > 0) {
+    bar.style.display = "block";
+    document.getElementById("scbItems").textContent =
+      total + " item" + (total !== 1 ? "s" : "") + " in cart";
+    document.getElementById("scbTotal").textContent =
+      "₦" + subtotal.toLocaleString();
+  } else {
+    bar.style.display = "none";
+  }
+}
+const scbBtn = document.getElementById("scbCheckoutBtn");
+if (scbBtn) {
+  scbBtn.addEventListener("click", () => {
+    if (cart.length === 0) {
+      showToast("⚠️ Your cart is empty!");
+      return;
+    }
+    openCheckoutModal();
+  });
+}
+
+// ── SCROLL PROGRESS BAR ───────────────────────────────────
+window.addEventListener(
+  "scroll",
+  () => {
+    const bar = document.getElementById("scrollProgress");
+    if (!bar) return;
+    const scrollTop = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (docH > 0 ? (scrollTop / docH) * 100 : 0) + "%";
+  },
+  { passive: true },
+);
+
+// ── DISCOUNT BADGE on renderCard ─────────────────────────
+// (already built into renderCard — oldPrice shows savings %)
+
+// ── PRODUCT SHARE (copy link to clipboard) ────────────────
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".product-share-btn");
+  if (!btn) return;
+  e.stopPropagation();
+  const id = btn.dataset.id;
+  const product = products.find((p) => p.id === +id);
+  if (!product) return;
+  const url = window.location.href.split("?")[0] + "?product=" + id;
+  if (navigator.share) {
+    navigator
+      .share({
+        title: product.name,
+        text:
+          "Check out " +
+          product.name +
+          " on Dev_Mart — ₦" +
+          product.price.toLocaleString(),
+        url,
+      })
+      .catch(() => {});
+  } else {
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        showToast("🔗 Link copied! Share with friends");
+      })
+      .catch(() => {
+        showToast("🔗 " + url);
+      });
+  }
+});
+
+// ── OPEN PRODUCT FROM URL PARAM ───────────────────────────
+(function checkUrlProduct() {
+  const params = new URLSearchParams(window.location.search);
+  const pid = params.get("product");
+  if (pid) {
+    setTimeout(() => openQuickView(+pid), 400);
+  }
+})();
+
 // ── INIT ──────────────────────────────────────────────────
 function init() {
   bindAvailabilityFilters();
@@ -1447,6 +1564,7 @@ function init() {
   updateCartBadge();
   updateCartUI();
   updateWishlistBadge();
+  updateStickyCartBar();
   renderAI();
   startTimer();
   renderRecentlyViewed();

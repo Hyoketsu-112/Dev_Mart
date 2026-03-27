@@ -3793,3 +3793,316 @@ a {
     flex-direction: column;
   }
 }
+
+/* ══════════════════════════════════════════
+   DARK MODE
+══════════════════════════════════════════ */
+[data-theme="dark"] {
+  --dark: #e8edf3;
+  --dark2: #c8d0da;
+  --mid: #a0aab8;
+  --muted: #7a8898;
+  --light: #1e2a38;
+  --white: #111820;
+  --border: #2a3848;
+  --green-pale: rgba(0, 107, 63, 0.18);
+  --orange-pale: rgba(232, 68, 10, 0.15);
+  --gold-pale: rgba(200, 155, 60, 0.15);
+}
+[data-theme="dark"] body {
+  background: #0d1520;
+  color: var(--dark);
+}
+[data-theme="dark"] .navbar {
+  background: #111820;
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .cat-nav {
+  background: #111820;
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .mobile-search-bar {
+  background: #111820;
+}
+[data-theme="dark"] .search-box {
+  background: #1e2a38;
+}
+[data-theme="dark"] .search-box:focus-within {
+  background: #111820;
+}
+[data-theme="dark"] .search-box input {
+  color: #e8edf3;
+}
+[data-theme="dark"] .filter-sidebar {
+  background: #111820;
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .product-card {
+  background: #111820;
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .product-card:hover {
+  border-color: rgba(0, 166, 81, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+[data-theme="dark"] .product-body {
+  background: #111820;
+}
+[data-theme="dark"] .trust-strip {
+  background: #0d1520;
+}
+[data-theme="dark"] .footer {
+  background: #0a1018;
+}
+[data-theme="dark"] .footer-top {
+  border-color: #1a2636;
+}
+[data-theme="dark"] .cart-drawer {
+  background: #111820;
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .cart-item {
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .cart-drawer-header {
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .cart-drawer-footer {
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .quick-view-modal {
+  background: #111820;
+}
+[data-theme="dark"] .modal-details {
+  background: #111820;
+}
+[data-theme="dark"] .modal-name {
+  color: #e8edf3;
+}
+[data-theme="dark"] .filter-sheet {
+  background: #111820;
+}
+[data-theme="dark"] .sort-select {
+  background: #1e2a38;
+  color: #e8edf3;
+  border-color: #2a3848;
+}
+[data-theme="dark"] .coupon-input {
+  background: #1e2a38;
+  color: #e8edf3;
+  border-color: #2a3848;
+}
+[data-theme="dark"] .address-form input,
+[data-theme="dark"] .address-form select,
+[data-theme="dark"] .address-form textarea {
+  background: #1e2a38;
+  color: #e8edf3;
+  border-color: #2a3848;
+}
+[data-theme="dark"] .checkout-modal {
+  background: #111820;
+}
+[data-theme="dark"] .hiw-modal {
+  background: #111820;
+}
+[data-theme="dark"] .hiw-step {
+  background: #1e2a38;
+}
+[data-theme="dark"] .recently-card {
+  background: #111820;
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .vendor-card {
+  background: #1e2a38;
+  border-color: #2a3848;
+}
+[data-theme="dark"] .vendor-card:hover {
+  background: #111820;
+}
+[data-theme="dark"] .mobile-bottom-nav {
+  background: #111820;
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .search-suggestions {
+  background: #111820;
+  border-color: #1e2a38;
+}
+[data-theme="dark"] .suggestion-item:hover {
+  background: #1e2a38;
+}
+[data-theme="dark"] .cko-review-addr {
+  background: #1e2a38;
+  border-color: #2a3848;
+}
+[data-theme="dark"] .cko-summary-mini {
+  background: rgba(0, 107, 63, 0.2);
+}
+
+/* ══════════════════════════════════════════
+   DISCOUNT PERCENTAGE BADGE
+══════════════════════════════════════════ */
+.discount-pct {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 5px;
+  vertical-align: middle;
+  letter-spacing: 0.3px;
+}
+
+/* ══════════════════════════════════════════
+   SHARE BUTTON ON PRODUCT CARD
+══════════════════════════════════════════ */
+.card-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.product-share-btn {
+  width: 32px;
+  height: 32px;
+  background: var(--light);
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--t);
+  flex-shrink: 0;
+}
+.product-share-btn:hover {
+  background: var(--green-pale);
+  border-color: var(--green-light);
+  color: var(--green);
+}
+
+/* ══════════════════════════════════════════
+   STICKY CART BAR
+══════════════════════════════════════════ */
+.sticky-cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 970;
+  background: var(--dark2, #1a2636);
+  color: #fff;
+  padding: 0;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.18);
+  animation: slideUpBar 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes slideUpBar {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.scb-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.scb-items {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+.scb-total {
+  font-family: "Syne", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  flex: 1;
+  text-align: center;
+}
+.scb-btn {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 11px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  transition: var(--t);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.scb-btn:hover {
+  background: var(--green-light);
+  transform: scale(1.03);
+}
+
+/* Push content up when sticky bar shows — handled by JS show/hide */
+/* On mobile, stack above bottom nav */
+@media (max-width: 640px) {
+  .sticky-cart-bar {
+    bottom: 62px; /* above mobile bottom nav */
+  }
+  .scb-inner {
+    padding: 12px 16px;
+  }
+  .scb-items {
+    display: none;
+  }
+  .scb-total {
+    text-align: left;
+  }
+}
+
+/* ══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+══════════════════════════════════════════ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--orange-light));
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════
+   DARK MODE BUTTON ICON TRANSITION
+══════════════════════════════════════════ */
+#darkModeBtn i {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#darkModeBtn:hover i {
+  transform: rotate(20deg) scale(1.15);
+}
+
+/* ══════════════════════════════════════════
+   HOW IT WORKS MODAL — STEP CARD STYLE
+══════════════════════════════════════════ */
+.hiw-step {
+  background: var(--light);
+  border-radius: 16px;
+  padding: 14px 10px;
+  border: 1.5px solid var(--border);
+  transition: var(--t);
+}
+.hiw-step:hover {
+  border-color: var(--green-light);
+  background: var(--green-pale);
+  transform: translateY(-3px);
+}
