@@ -1,28 +1,32 @@
 # Dev_Mart 🛍️
-### Nigerian Marketplace — Lagos, Nigeria
 
-A frontend e-commerce storefront built for Lagos buyers and vendors. It covers three product categories — **Fabrics & Textiles**, **Nigerian Food**, and **Groceries** — and delivers a full shopping experience from browsing to checkout, all in the browser with no backend required.
+### Nigerian Tech Store — Lagos, Nigeria
+
+A frontend e-commerce storefront built for Lagos tech enthusiasts and gadget lovers. It covers six product categories — **Smartphones**, **Laptops**, **Gaming**, **Audio**, **Wearables**, and **Accessories** — and delivers a full shopping experience from browsing to checkout, all in the browser with no backend required.
 
 ---
 
 ## What It Does
 
-| Feature | Details |
-|---|---|
-| Product catalogue | 20+ products across Fabrics, Food, and Groceries |
-| Search | Live search with instant dropdown suggestions |
-| Filtering & sorting | Category pills, price sort, In Stock Only, Verified Sellers Only |
-| Quick View modal | Product details + quantity selector, all in a pop-up |
-| Cart | Slide-out drawer; persists across page refreshes (localStorage) |
-| Wishlist | Save items; badge count persists in localStorage |
-| Coupon codes | `DEVMART10`, `NAIJA20`, `LAGOS15` |
-| Checkout flow | 3-step: Address → Order Review → Confirmation |
-| AI Picks | Top 6 products ranked by `rating × log(reviewCount)` — not random |
-| Flash sale timer | Countdown persists deadline across refreshes |
-| Recently Viewed | Tracks last-viewed products, stored in localStorage |
-| WhatsApp button | Floating chat-with-us shortcut |
-| Mobile bottom nav | Home, Shop, Cart, Saved, Account tabs |
-| Newsletter signup | Email capture with toast confirmation |
+| Feature             | Details                                                           |
+| ------------------- | ----------------------------------------------------------------- |
+| Product catalogue   | 20+ premium tech products across all categories                   |
+| Product galleries   | Multiple images per product with gallery switching                |
+| Color variants      | Rich color selection for phones, laptops, and accessories         |
+| Search              | Live search with instant dropdown suggestions                     |
+| Filtering & sorting | Category pills, price sort, In Stock Only, Verified Sellers Only  |
+| Quick View modal    | Product details + specs + quantity selector, all in a pop-up      |
+| Cart                | Slide-out drawer; persists across page refreshes (localStorage)   |
+| Wishlist            | Save items; badge count persists in localStorage                  |
+| Stock indicators    | Low stock warnings (≤5 items), express delivery badges            |
+| Coupon codes        | `DEVMART10`, `NAIJA20`, `LAGOS15`                                 |
+| Checkout flow       | 3-step: Address → Order Review → Confirmation                     |
+| AI Picks            | Top 6 products ranked by `rating × log(reviewCount)` — not random |
+| Flash sale timer    | Countdown persists deadline across refreshes                      |
+| Recently Viewed     | Tracks last-viewed products, stored in localStorage               |
+| WhatsApp button     | Floating chat-with-us shortcut                                    |
+| Mobile bottom nav   | Home, Shop, Cart, Saved, Account tabs                             |
+| Newsletter signup   | Email capture with toast confirmation                             |
 
 ---
 
@@ -33,15 +37,18 @@ dev_mart/
 │
 ├── index.html       # All markup — navbar, hero, product grid, modals, drawers
 ├── style.css        # All styles — layout, components, animations, dark/light vars
-├── app.js           # All logic — product data, cart, filters, checkout, timers
+├── app.js           # All logic — product data (20 tech products), cart, filters, checkout
 │
-└── Assets/          # Product images (referenced by filename in app.js)
-    ├── Ankara_Atampa.jpg
-    ├── Beans and plantain.jpg
-    └── ...
+└── Assets/          # Tech product images (referenced by filename in app.js)
+    ├── iPhone17.jpg
+    ├── Samsung s24.jpg
+    ├── PS5 PACKAGE.jpg
+    ├── JBL Boombox 3...jpg
+    ├── pc setup.jpg
+    └── ... (30+ tech product images)
 ```
 
-> The entire app is **three files**. No build step, no npm, no framework. Open `index.html` in a browser and it runs.
+> The entire app is **three files + asset images**. No build step, no npm, no framework. Open `index.html` in a browser and it runs.
 
 ---
 
@@ -67,11 +74,11 @@ python -m http.server 8000
 
 Three discount codes are built into `app.js`:
 
-| Code | Discount |
-|---|---|
-| `DEVMART10` | 10% off |
-| `NAIJA20` | 20% off |
-| `LAGOS15` | 15% off |
+| Code        | Discount |
+| ----------- | -------- |
+| `DEVMART10` | 10% off  |
+| `NAIJA20`   | 20% off  |
+| `LAGOS15`   | 15% off  |
 
 To add or change codes, find the `COUPONS` object near the top of `app.js`.
 
@@ -81,11 +88,11 @@ To add or change codes, find the `COUPONS` object near the top of `app.js`.
 
 The app saves state to the browser's localStorage so nothing is lost on refresh.
 
-| Key | What it stores |
-|---|---|
-| `dm_cart` | Cart items and quantities |
-| `dm_wishlist` | Saved/wishlisted product IDs |
-| `dm_recent` | Recently viewed product IDs |
+| Key                 | What it stores                 |
+| ------------------- | ------------------------------ |
+| `dm_cart`           | Cart items and quantities      |
+| `dm_wishlist`       | Saved/wishlisted product IDs   |
+| `dm_recent`         | Recently viewed product IDs    |
 | `dm_flash_deadline` | Flash sale timer end timestamp |
 
 To fully reset the app state: open DevTools → Application → Local Storage → clear all `dm_*` keys.
@@ -130,14 +137,14 @@ Drop the image into the `Assets/` folder and add the object to the array. That's
 
 ## Modals & UI Pieces
 
-| Component | How it's triggered |
-|---|---|
-| Quick View modal | Click any product card or "View" button |
-| Cart drawer | Click the bag icon in navbar or mobile bottom nav |
-| Checkout modal | Click "Proceed to Checkout" in the cart drawer |
-| How It Works modal | Click "How It Works" in the hero section |
-| Filter sheet (mobile) | Tap "Filters & Sort" bar on small screens |
-| Search suggestions | Type 2+ characters in the search bar |
+| Component             | How it's triggered                                |
+| --------------------- | ------------------------------------------------- |
+| Quick View modal      | Click any product card or "View" button           |
+| Cart drawer           | Click the bag icon in navbar or mobile bottom nav |
+| Checkout modal        | Click "Proceed to Checkout" in the cart drawer    |
+| How It Works modal    | Click "How It Works" in the hero section          |
+| Filter sheet (mobile) | Tap "Filters & Sort" bar on small screens         |
+| Search suggestions    | Type 2+ characters in the search bar              |
 
 All modals close on `Escape` key or clicking the backdrop overlay.
 
