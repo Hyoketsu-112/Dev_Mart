@@ -17,22 +17,42 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   </head>
   <body>
     <!-- ANNOUNCEMENT BAR -->
     <div class="announce-bar">
       <div class="announce-track">
-        <span><i class="bi bi-shield"></i> 100% Authentic Products</span><span class="dot">✦</span>
-        <span><i class="bi bi-truck"></i> Same-Day Lagos Delivery</span><span class="dot">✦</span>
-        <span><i class="bi bi-arrow-repeat"></i> Free Returns within 7 Days</span><span class="dot">✦</span>
-        <span><i class="bi bi-check2-circle"></i> Verified Nigerian Vendors Only</span><span class="dot">✦</span>
-        <span><i class="bi bi-credit-card"></i> Pay on Delivery Available</span><span class="dot">✦</span>
-        <span><i class="bi bi-shield"></i> 100% Authentic Products</span><span class="dot">✦</span>
-        <span><i class="bi bi-truck"></i> Same-Day Lagos Delivery</span><span class="dot">✦</span>
-        <span><i class="bi bi-arrow-repeat"></i> Free Returns within 7 Days</span><span class="dot">✦</span>
-        <span><i class="bi bi-check2-circle"></i> Verified Nigerian Vendors Only</span><span class="dot">✦</span>
-        <span><i class="bi bi-credit-card"></i> Pay on Delivery Available</span><span class="dot">✦</span>
+        <span><i class="bi bi-shield"></i> 100% Authentic Products</span
+        ><span class="dot">✦</span>
+        <span><i class="bi bi-truck"></i> Same-Day Lagos Delivery</span
+        ><span class="dot">✦</span>
+        <span
+          ><i class="bi bi-arrow-repeat"></i> Free Returns within 7 Days</span
+        ><span class="dot">✦</span>
+        <span
+          ><i class="bi bi-check2-circle"></i> Verified Nigerian Vendors
+          Only</span
+        ><span class="dot">✦</span>
+        <span><i class="bi bi-credit-card"></i> Pay on Delivery Available</span
+        ><span class="dot">✦</span>
+        <span><i class="bi bi-shield"></i> 100% Authentic Products</span
+        ><span class="dot">✦</span>
+        <span><i class="bi bi-truck"></i> Same-Day Lagos Delivery</span
+        ><span class="dot">✦</span>
+        <span
+          ><i class="bi bi-arrow-repeat"></i> Free Returns within 7 Days</span
+        ><span class="dot">✦</span>
+        <span
+          ><i class="bi bi-check2-circle"></i> Verified Nigerian Vendors
+          Only</span
+        ><span class="dot">✦</span>
+        <span><i class="bi bi-credit-card"></i> Pay on Delivery Available</span
+        ><span class="dot">✦</span>
       </div>
     </div>
 
@@ -85,11 +105,7 @@
           >
             <i class="far fa-heart"></i>
             <span class="nav-label">Saved</span>
-            <div
-              class="cart-badge"
-              id="wishlistCount"
-              style="display: none; background: var(--orange)"
-            >
+            <div id="wishlistCount" class="cart-badge wishlist-count is-hidden">
               0
             </div>
           </button>
@@ -122,7 +138,7 @@
           <input
             type="text"
             id="mobileSearchInput"
-            placeholder="Search fabrics, food, groceries…"
+            placeholder="Search iPhones, laptops, consoles…"
             autocomplete="off"
           />
           <button id="mobileSearchBtn" class="search-go">Go</button>
@@ -136,7 +152,8 @@
             <i class="fas fa-th-large"></i><span>All Products</span>
           </button>
           <button class="cat-pill" data-cat="Phones">
-            <i class="fas fa-phone" aria-hidden="true"></i><span>phones &amp; accessories</span>
+            <i class="fas fa-phone" aria-hidden="true"></i
+            ><span>Phones &amp; Accessories</span>
           </button>
           <button class="cat-pill" data-cat="Pc">
             <i class="fas fa-laptop"></i><span>Computers &amp; Laptops</span>
@@ -165,7 +182,8 @@
       </div>
       <div class="hero-content">
         <div class="hero-badge">
-          <span class="pulse-dot"></span><span>Live · Lagos Marketplace</span>
+          <span class="pulse-dot"></span
+          ><span>Live · Lagos Tech Marketplace</span>
         </div>
         <h1 class="hero-title">
           <span>Shop Nigeria's</span>
@@ -278,7 +296,7 @@
           <img src="Assets/LANDING PAGE.jpg" alt="Smartphones" loading="lazy" />
           <div class="cat-card-overlay">
             <div class="cat-card-tag">Smartphones</div>
-            <div class="cat-card-count">6 Products</div>
+            <div class="cat-card-count">8 Products</div>
             <button class="cat-shop-btn">
               Shop Now <i class="fas fa-arrow-right"></i>
             </button>
@@ -293,7 +311,7 @@
             />
             <div class="cat-card-overlay">
               <div class="cat-card-tag">Laptops</div>
-              <div class="cat-card-count">3 Products</div>
+              <div class="cat-card-count">4 Products</div>
               <button class="cat-shop-btn">
                 Shop Now <i class="fas fa-arrow-right"></i>
               </button>
@@ -303,27 +321,35 @@
             <img src="Assets/PS5 PACKAGE.jpg" alt="Gaming" loading="lazy" />
             <div class="cat-card-overlay">
               <div class="cat-card-tag">Gaming</div>
-              <div class="cat-card-count">2 Products</div>
+              <div class="cat-card-count">8 Products</div>
               <button class="cat-shop-btn">
                 Shop Now <i class="fas fa-arrow-right"></i>
               </button>
             </div>
           </div>
           <div class="cat-card" onclick="filterCategory('Audio')">
-            <img src="Assets/JBL Boombox 3 Portable Speaker, Massive Signature Pro Sound, Monstrous Bass, 24H Battery, IP67 Dust.jpg" alt="Audio" loading="lazy" />
+            <img
+              src="Assets/JBL Boombox 3 Portable Speaker, Massive Signature Pro Sound, Monstrous Bass, 24H Battery, IP67 Dust.jpg"
+              alt="Audio"
+              loading="lazy"
+            />
             <div class="cat-card-overlay">
               <div class="cat-card-tag">Audio</div>
-              <div class="cat-card-count">2 Products</div>
+              <div class="cat-card-count">3 Products</div>
               <button class="cat-shop-btn">
                 Shop Now <i class="fas fa-arrow-right"></i>
               </button>
             </div>
           </div>
           <div class="cat-card" onclick="filterCategory('Wearables')">
-            <img src="Assets/Teamyo Smart Watch Men.jpg" alt="Wearables" loading="lazy" />
+            <img
+              src="Assets/Teamyo Smart Watch Men.jpg"
+              alt="Wearables"
+              loading="lazy"
+            />
             <div class="cat-card-overlay">
               <div class="cat-card-tag">Wearables</div>
-              <div class="cat-card-count">2 Products</div>
+              <div class="cat-card-count">3 Products</div>
               <button class="cat-shop-btn">
                 Shop Now <i class="fas fa-arrow-right"></i>
               </button>
@@ -333,7 +359,7 @@
             <img src="Assets/pc setup.jpg" alt="Accessories" loading="lazy" />
             <div class="cat-card-overlay">
               <div class="cat-card-tag">Accessories</div>
-              <div class="cat-card-count">5 Products</div>
+              <div class="cat-card-count">6 Products</div>
               <button class="cat-shop-btn">
                 Shop Now <i class="fas fa-arrow-right"></i>
               </button>
@@ -352,8 +378,8 @@
           <p>Check out the most popular tech products this week</p>
         </div>
         <a href="#" class="view-all-link"
-          >View All <i class="fas fa-arrow-right"></i>
-        ></a>
+          >View All <i class="fas fa-arrow-right"></i> ></a
+        >
       </div>
       <div class="trending-carousel" id="trendingCarousel"></div>
     </section>
@@ -395,7 +421,12 @@
           <div class="section-label">Our Collection</div>
           <h2>Featured Products</h2>
         </div>
-        <select id="sortSelect" class="sort-select">
+        <select
+          id="sortSelect"
+          class="sort-select"
+          aria-label="Sort featured products"
+          title="Sort featured products"
+        >
           <option value="default">Sort: Featured</option>
           <option value="price_asc">Price: Low to High</option>
           <option value="price_desc">Price: High to Low</option>
@@ -593,11 +624,7 @@
     </section>
 
     <!-- RECENTLY VIEWED -->
-    <section
-      class="recently-section"
-      id="recentlySection"
-      style="display: none"
-    >
+    <section class="recently-section" id="recentlySection">
       <div class="recently-inner">
         <div class="recently-header">
           <div class="section-label">
@@ -623,12 +650,7 @@
         </div>
         <div class="vendors-grid">
           <div class="vendor-card">
-            <div
-              class="vendor-avatar"
-              style="background: linear-gradient(135deg, #1f2937, #4b5563)"
-            >
-              T
-            </div>
+            <div class="vendor-avatar vendor-avatar--techhub">T</div>
             <div class="vendor-info">
               <div class="vendor-name">TechHub Nigeria</div>
               <div class="vendor-location">
@@ -641,12 +663,7 @@
             <span class="vendor-badge">⭐ Top Seller</span>
           </div>
           <div class="vendor-card">
-            <div
-              class="vendor-avatar"
-              style="background: linear-gradient(135deg, #0066cc, #0099ff)"
-            >
-              S
-            </div>
+            <div class="vendor-avatar vendor-avatar--samsung">S</div>
             <div class="vendor-info">
               <div class="vendor-name">Samsung Tech Nigeria</div>
               <div class="vendor-location">
@@ -659,12 +676,7 @@
             <span class="vendor-badge">💎 Premium</span>
           </div>
           <div class="vendor-card">
-            <div
-              class="vendor-avatar"
-              style="background: linear-gradient(135deg, #555555, #999999)"
-            >
-              A
-            </div>
+            <div class="vendor-avatar vendor-avatar--apple">A</div>
             <div class="vendor-info">
               <div class="vendor-name">Apple Store Nigeria</div>
               <div class="vendor-location">
@@ -677,12 +689,7 @@
             <span class="vendor-badge">🏆 Most Loved</span>
           </div>
           <div class="vendor-card">
-            <div
-              class="vendor-avatar"
-              style="background: linear-gradient(135deg, #cc0000, #ff3333)"
-            >
-              L
-            </div>
+            <div class="vendor-avatar vendor-avatar--lenovo">L</div>
             <div class="vendor-info">
               <div class="vendor-name">Lenovo Nigeria</div>
               <div class="vendor-location">
@@ -726,7 +733,8 @@
             </button>
           </div>
           <p class="newsletter-note">
-            <i class="bi bi-info-circle"></i> No spam. Unsubscribe anytime. Your data is safe with us.
+            <i class="bi bi-info-circle"></i> No spam. Unsubscribe anytime. Your
+            data is safe with us.
           </p>
         </form>
       </div>
@@ -741,7 +749,8 @@
             <span>Dev_Mart</span>
           </div>
           <p>
-            Nigeria's most trusted online tech marketplace for premium gadgets, smartphones, laptops, and accessories. Quality you can count on.
+            Nigeria's most trusted online tech marketplace for premium gadgets,
+            smartphones, laptops, and accessories. Quality you can count on.
           </p>
           <div class="social-links">
             <a href="#" aria-label="Instagram"
@@ -811,7 +820,12 @@
       <div class="sheet-body">
         <div class="filter-block">
           <div class="filter-title">Sort By</div>
-          <select id="mobileSortSelect" class="sort-select full-select">
+          <select
+            id="mobileSortSelect"
+            class="sort-select full-select"
+            aria-label="Sort products on mobile"
+            title="Sort products on mobile"
+          >
             <option value="default">Featured</option>
             <option value="price_asc">Price: Low to High</option>
             <option value="price_desc">Price: High to Low</option>
@@ -967,7 +981,7 @@
     >
       <div class="cart-drawer-header">
         <div class="cart-drawer-title">
-          <i class="fas fa-heart" style="color: var(--orange)"></i>
+          <i class="fas fa-heart wishlist-title-icon"></i>
           <span>Saved (<span id="wishlistItemCount">0</span>)</span>
         </div>
         <button
@@ -985,11 +999,10 @@
           <span>Tap the heart on any product to save it here</span>
         </div>
       </div>
-      <div class="cart-drawer-footer" id="wishlistFooter" style="display: none">
+      <div class="cart-drawer-footer is-hidden" id="wishlistFooter">
         <button
-          class="checkout-btn"
+          class="checkout-btn checkout-btn--wishlist"
           id="wishlistAddAllBtn"
-          style="background: var(--orange)"
         >
           <i class="fas fa-shopping-bag"></i> Add All to Cart
         </button>
@@ -1048,7 +1061,9 @@
         <button class="checkout-btn" id="checkoutBtn">
           <i class="fas fa-lock"></i> Proceed to Checkout
         </button>
-        <p class="cart-note"><i class="bi bi-lock"></i> Secured by Paystack. 100% safe.</p>
+        <p class="cart-note">
+          <i class="bi bi-lock"></i> Secured by Paystack. 100% safe.
+        </p>
       </div>
     </div>
 
@@ -1126,7 +1141,7 @@
     >
       <div class="cart-drawer-header">
         <div class="cart-drawer-title">
-          <i class="fas fa-user-circle" style="color: var(--green)"></i>
+          <i class="fas fa-user-circle account-title-icon"></i>
           <span>My Account</span>
         </div>
         <button
@@ -1240,7 +1255,9 @@
           <div class="hiw-step-icon"><i class="bi bi-search"></i></div>
           <div class="hiw-step-title">Browse &amp; Search</div>
           <p>
-            Explore our wide range of tech products. Use filters to find exactly what you need. Check out trending items and AI picks for personalized suggestions.
+            Explore our wide range of tech products. Use filters to find exactly
+            what you need. Check out trending items and AI picks for
+            personalized suggestions.
           </p>
         </div>
         <div class="hiw-step-arrow">→</div>
@@ -1288,7 +1305,7 @@
     </div>
 
     <!-- STICKY CART BAR -->
-    <div class="sticky-cart-bar" id="stickyCartBar" style="display: none">
+    <div class="sticky-cart-bar is-hidden" id="stickyCartBar">
       <div class="scb-inner">
         <span class="scb-items" id="scbItems">0 items in cart</span>
         <span class="scb-total" id="scbTotal">₦0</span>
