@@ -55,7 +55,7 @@ const products = [
     desc: "Experience the pinnacle of smartphone innovation with iPhone 17 Pro Max. 6.9-inch Super Retina XDR display with 120Hz ProMotion, A17 Pro chip, pro camera system with 48MP main sensor, titanium build, and all-day battery life. Built for creators and professionals.",
     vendor: "TechHub Nigeria",
     location: "Lekki, Lagos",
-    specs: '6.9" Super Retina XDR · A17 Pro · 256GB/512GB · 48MP Main'
+    specs: '6.9" Super Retina XDR · A17 Pro · 256GB/512GB · 48MP Main',
   },
   {
     id: 2,
@@ -83,7 +83,7 @@ const products = [
     desc: "Redefine mobile photography with Galaxy S24 Ultra's advanced camera system. 200MP main sensor, AI-powered Night Mode, Snapdragon 8 Gen 3, 6.8-inch display, IP68 rated, and 5000mAh battery. Perfect for content creators.",
     vendor: "Samsung Store Nigeria",
     location: "Victoria Island, Lagos",
-    specs: '6.8" AMOLED · Snapdragon 8 Gen 3 · 256GB · 200MP'
+    specs: '6.8" AMOLED · Snapdragon 8 Gen 3 · 256GB · 200MP',
   },
   {
     id: 3,
@@ -95,7 +95,10 @@ const products = [
     rating: 4.7,
     ratingCount: 3421,
     image: "Assets/Apple iPhone 14.jpg",
-    gallery: ["Assets/Apple iPhone 14.jpg", "Assets/Apple iPhone 14 (128 GB) - purple.jpg"],
+    gallery: [
+      "Assets/Apple iPhone 14.jpg",
+      "Assets/Apple iPhone 14 (128 GB) - purple.jpg",
+    ],
     colors: ["Black", "Purple", "Blue", "Gold", "Red"],
     verified: true,
     inStock: true,
@@ -109,7 +112,7 @@ const products = [
     desc: "Reliable performance for everyday use. 6.1-inch Super Retina XDR display, A15 Bionic chip, Dual camera system with Night Mode, Action Mode video, and improved battery life. A great choice for most users.",
     vendor: "Apple Authorized Dealer",
     location: "Ikeja, Lagos",
-    specs: '6.1" Super Retina XDR · A15 Bionic · 128GB/256GB'
+    specs: '6.1" Super Retina XDR · A15 Bionic · 128GB/256GB',
   },
   {
     id: 4,
@@ -135,7 +138,7 @@ const products = [
     desc: "Great smartphone for everyday tasks. 6.5-inch display, MediaTek processor, 50MP main camera, 5000mAh battery with fast charging. Perfect for students and budget-conscious users.",
     vendor: "TechMart Nigeria",
     location: "Lekki, Lagos",
-    specs: '6.5" OLED · MediaTek Helio · 128GB · 50MP'
+    specs: '6.5" OLED · MediaTek Helio · 128GB · 50MP',
   },
   {
     id: 5,
@@ -162,7 +165,7 @@ const products = [
     desc: "Maximum value at minimal cost. 6.7-inch display, MediaTek Helio G88, 50MP main camera, 5000mAh battery, 18W fast charging. Excellent for gaming and everyday use.",
     vendor: "Xiaomi Nigeria",
     location: "Ikeja, Lagos",
-    specs: '6.7" IPS LCD · MediaTek Helio G88 · 128GB · 50MP'
+    specs: '6.7" IPS LCD · MediaTek Helio G88 · 128GB · 50MP',
   },
   {
     id: 6,
@@ -174,7 +177,10 @@ const products = [
     rating: 4.8,
     ratingCount: 2156,
     image: "Assets/Apple iPhone 15 (128 GB) - Blue.jpg",
-    gallery: ["Assets/Apple iPhone 15 (128 GB) - Blue.jpg", "Assets/Apple iPhone 15 128GB - Black _ JD Williams.jpg"],
+    gallery: [
+      "Assets/Apple iPhone 15 (128 GB) - Blue.jpg",
+      "Assets/Apple iPhone 15 128GB - Black _ JD Williams.jpg",
+    ],
     colors: ["Black", "Blue", "Green", "Yellow", "Pink"],
     verified: true,
     inStock: true,
@@ -189,7 +195,7 @@ const products = [
     desc: "Latest iPhone with Dynamic Island, A16 Bionic chip, 6.1-inch Super Retina XDR display, USB-C connectivity, improved cameras with Night Mode, and all-day battery. Perfect balance of performance and price.",
     vendor: "Apple Store Nigeria",
     location: "Lekki, Lagos",
-    specs: '6.1" Super Retina XDR · A16 Bionic · 128GB/256GB'
+    specs: '6.1" Super Retina XDR · A16 Bionic · 128GB/256GB',
   },
   {
     id: 7,
@@ -200,8 +206,11 @@ const products = [
     oldPrice: 1549000,
     rating: 4.9,
     ratingCount: 1823,
-    image: "Assets/Two MacBook Air M2 Space Gray - PSD - 108653 _ Yellow Images.jpg",
-    gallery: ["Assets/Two MacBook Air M2 Space Gray - PSD - 108653 _ Yellow Images.jpg"],
+    image:
+      "Assets/Two MacBook Air M2 Space Gray - PSD - 108653 _ Yellow Images.jpg",
+    gallery: [
+      "Assets/Two MacBook Air M2 Space Gray - PSD - 108653 _ Yellow Images.jpg",
+    ],
     colors: ["Space Gray", "Silver", "Gold"],
     verified: true,
     inStock: true,
@@ -217,7 +226,7 @@ const products = [
     desc: "Ultra-thin and powerful. Apple M2 chip with 8-core CPU, 10-core GPU, 16GB unified memory, 512GB SSD. Stunning 13.6-inch Liquid Retina display, 18-hour battery life, perfect for creators and professionals.",
     vendor: "Apple Pro Store Nigeria",
     location: "Victoria Island, Lagos",
-    specs: 'M2 · 16GB RAM · 512GB SSD · 13.6" Retina'
+    specs: 'M2 · 16GB RAM · 512GB SSD · 13.6" Retina',
   },
   {
     id: 8,
@@ -228,8 +237,11 @@ const products = [
     oldPrice: 3499000,
     rating: 4.8,
     ratingCount: 654,
-    image: "Assets/Dell Precision 5760 Workstation Laptop _ 17_ 1920x1200 FHD+ _ Core i7-11850H - 512GB SSD Hard Drive - 32GB RAM - Nvidia RTX A3000 _ 8 cores @ 4_8 GHz - 6GB GDDR6 Win 11 Pro Silver.jpg",
-    gallery: ["Assets/Dell Precision 5760 Workstation Laptop _ 17_ 1920x1200 FHD+ _ Core i7-11850H - 512GB SSD Hard Drive - 32GB RAM - Nvidia RTX A3000 _ 8 cores @ 4_8 GHz - 6GB GDDR6 Win 11 Pro Silver.jpg"],
+    image:
+      "Assets/Dell Precision 5760 Workstation Laptop _ 17_ 1920x1200 FHD+ _ Core i7-11850H - 512GB SSD Hard Drive - 32GB RAM - Nvidia RTX A3000 _ 8 cores @ 4_8 GHz - 6GB GDDR6 Win 11 Pro Silver.jpg",
+    gallery: [
+      "Assets/Dell Precision 5760 Workstation Laptop _ 17_ 1920x1200 FHD+ _ Core i7-11850H - 512GB SSD Hard Drive - 32GB RAM - Nvidia RTX A3000 _ 8 cores @ 4_8 GHz - 6GB GDDR6 Win 11 Pro Silver.jpg",
+    ],
     colors: ["Silver"],
     verified: true,
     inStock: true,
@@ -243,7 +255,7 @@ const products = [
     desc: "Engineering powerhouse. 17-inch 4K display, Intel Core i7-11850H, 32GB RAM, 512GB SSD, NVIDIA RTX A3000 graphics, Thunderbolt connectivity. Built for CAD, 3D rendering, and professional applications.",
     vendor: "TechPro Solutions",
     location: "Lekki, Lagos",
-    specs: '17" 4K FHD+ · i7-11850H · 32GB RAM · RTX A3000'
+    specs: '17" 4K FHD+ · i7-11850H · 32GB RAM · RTX A3000',
   },
   {
     id: 9,
@@ -254,8 +266,11 @@ const products = [
     oldPrice: 699000,
     rating: 4.7,
     ratingCount: 1245,
-    image: "Assets/Lenovo IdeaPad Slim 5 82SF004XIN Launched in India ( 12th Gen Intel Core i7-1255U _ 16GB ram _ 512GB SSD ) _ Tech Stories India.jpg",
-    gallery: ["Assets/Lenovo IdeaPad Slim 5 82SF004XIN Launched in India ( 12th Gen Intel Core i7-1255U _ 16GB ram _ 512GB SSD ) _ Tech Stories India.jpg"],
+    image:
+      "Assets/Lenovo IdeaPad Slim 5 82SF004XIN Launched in India ( 12th Gen Intel Core i7-1255U _ 16GB ram _ 512GB SSD ) _ Tech Stories India.jpg",
+    gallery: [
+      "Assets/Lenovo IdeaPad Slim 5 82SF004XIN Launched in India ( 12th Gen Intel Core i7-1255U _ 16GB ram _ 512GB SSD ) _ Tech Stories India.jpg",
+    ],
     colors: ["Graphite Gray", "Silver"],
     verified: true,
     inStock: true,
@@ -269,7 +284,7 @@ const products = [
     desc: "Perfect balance for students and professionals. 14-inch FHD display, Intel Core i7-1255U, 16GB RAM, 512GB SSD, Intel Iris Xe graphics. Lightweight, elegant design with excellent keyboard.",
     vendor: "Lenovo Nigeria",
     location: "Ikeja, Lagos",
-    specs: '14" FHD · i7-1255U · 16GB RAM · 512GB SSD'
+    specs: '14" FHD · i7-1255U · 16GB RAM · 512GB SSD',
   },
   {
     id: 10,
@@ -281,7 +296,10 @@ const products = [
     rating: 4.9,
     ratingCount: 3567,
     image: "Assets/Playstation 5 Slim Digital.jpg",
-    gallery: ["Assets/Playstation 5 Slim Digital.jpg", "Assets/PS5 PACKAGE.jpg"],
+    gallery: [
+      "Assets/Playstation 5 Slim Digital.jpg",
+      "Assets/PS5 PACKAGE.jpg",
+    ],
     colors: ["White"],
     verified: true,
     inStock: true,
@@ -297,7 +315,7 @@ const products = [
     desc: "Compact, sleek gaming. All-digital PS5 Slim with custom SSD, 4K gaming at 120fps, haptic feedback, adaptive triggers, 3D audio. Access PlayStation library digitally. Perfect for gaming enthusiasts.",
     vendor: "PlayStation Direct Nigeria",
     location: "Victoria Island, Lagos",
-    specs: 'Custom SSD · 825GB · 4K@120fps · Slim Design'
+    specs: "Custom SSD · 825GB · 4K@120fps · Slim Design",
   },
   {
     id: 11,
@@ -323,7 +341,7 @@ const products = [
     desc: "Proven gaming performance. 4K gaming, enhanced processor, improved cooling system, 1TB storage. Access thousands of PS4 games and exclusive titles. Great entry point to Sony gaming.",
     vendor: "Gaming Hub Nigeria",
     location: "Lekki, Lagos",
-    specs: '4K Gaming · 1TB HDD · Powerful GPU · 8 CPU Cores'
+    specs: "4K Gaming · 1TB HDD · Powerful GPU · 8 CPU Cores",
   },
   {
     id: 12,
@@ -334,8 +352,11 @@ const products = [
     oldPrice: 249000,
     rating: 4.8,
     ratingCount: 1456,
-    image: "Assets/JBL Boombox 3 Portable Speaker, Massive Signature Pro Sound, Monstrous Bass, 24H Battery, IP67 Dust.jpg",
-    gallery: ["Assets/JBL Boombox 3 Portable Speaker, Massive Signature Pro Sound, Monstrous Bass, 24H Battery, IP67 Dust.jpg"],
+    image:
+      "Assets/JBL Boombox 3 Portable Speaker, Massive Signature Pro Sound, Monstrous Bass, 24H Battery, IP67 Dust.jpg",
+    gallery: [
+      "Assets/JBL Boombox 3 Portable Speaker, Massive Signature Pro Sound, Monstrous Bass, 24H Battery, IP67 Dust.jpg",
+    ],
     colors: ["Black", "Red", "Blue"],
     verified: true,
     inStock: true,
@@ -350,7 +371,7 @@ const products = [
     desc: "Massive sound, portable size. 40W Pro Sound with massive bass, 24-hour battery life, IP67 waterproof/dustproof, Bluetooth 5.3, PartyBoost connection. Perfect for parties, beach, and travel.",
     vendor: "Audio Central Nigeria",
     location: "Ikeja, Lagos",
-    specs: '40W Power · 24H Battery · IP67 Rated · Bluetooth 5.3'
+    specs: "40W Power · 24H Battery · IP67 Rated · Bluetooth 5.3",
   },
   {
     id: 13,
@@ -361,8 +382,11 @@ const products = [
     oldPrice: 65000,
     rating: 4.6,
     ratingCount: 892,
-    image: "Assets/MOVSSOU E7 Active Noise Cancelling Headphones Bluetooth Headphones Wireless Headphones Over Ear with Microphone Deep Bass, Comfortable Protein Earpads, 30 Hours Playtime for Travel_Work, Black.jpg",
-    gallery: ["Assets/MOVSSOU E7 Active Noise Cancelling Headphones Bluetooth Headphones Wireless Headphones Over Ear with Microphone Deep Bass, Comfortable Protein Earpads, 30 Hours Playtime for Travel_Work, Black.jpg"],
+    image:
+      "Assets/MOVSSOU E7 Active Noise Cancelling Headphones Bluetooth Headphones Wireless Headphones Over Ear with Microphone Deep Bass, Comfortable Protein Earpads, 30 Hours Playtime for Travel_Work, Black.jpg",
+    gallery: [
+      "Assets/MOVSSOU E7 Active Noise Cancelling Headphones Bluetooth Headphones Wireless Headphones Over Ear with Microphone Deep Bass, Comfortable Protein Earpads, 30 Hours Playtime for Travel_Work, Black.jpg",
+    ],
     colors: ["Black", "Silver", "Blue"],
     verified: true,
     inStock: true,
@@ -376,7 +400,7 @@ const products = [
     desc: "Professional-grade noise cancelling. Active Noise Cancellation, 30-hour battery life, deep bass with comfortable protein earpads, built-in microphone for calls. Perfect for work, travel, and gaming.",
     vendor: "Audio Tech Store",
     location: "Victoria Island, Lagos",
-    specs: 'ANC · 30H Battery · Deep Bass · Comfort Fit'
+    specs: "ANC · 30H Battery · Deep Bass · Comfort Fit",
   },
   {
     id: 14,
@@ -403,7 +427,7 @@ const products = [
     desc: "Ultimate fitness companion. Rugged titanium design, always-on Retina display, 100m water resistance, blood oxygen sensor, ECG, emergency SOS, multi-day battery. Built for extreme sports and outdoor adventures.",
     vendor: "Apple Watch Specialists",
     location: "Lekki, Lagos",
-    specs: 'Titanium · S9 Chip · Always-On Display · IP6X+WR100'
+    specs: "Titanium · S9 Chip · Always-On Display · IP6X+WR100",
   },
   {
     id: 15,
@@ -430,7 +454,7 @@ const products = [
     desc: "Classic design meets innovation. Rotating bezel navigation, AMOLED display, SpO2 monitoring, ECG, stress measurement, 3-day battery life. Compatible with Android devices for comprehensive health tracking.",
     vendor: "Samsung Tech Nigeria",
     location: "Victoria Island, Lagos",
-    specs: 'AMOLED · Exynos W930 · 3 Days Battery · IP68'
+    specs: "AMOLED · Exynos W930 · 3 Days Battery · IP68",
   },
   {
     id: 16,
@@ -441,8 +465,13 @@ const products = [
     oldPrice: 1999000,
     rating: 4.9,
     ratingCount: 734,
-    image: "Assets/aes, aesthetic, acubi aesthetic, acubi room aesthetic, pc, pc aesthetic, pc setup.jpg",
-    gallery: ["Assets/aes, aesthetic, acubi aesthetic, acubi room aesthetic, pc, pc aesthetic, pc setup.jpg", "Assets/pc setup.jpg", "Assets/white pc setup.jpg"],
+    image:
+      "Assets/aes, aesthetic, acubi aesthetic, acubi room aesthetic, pc, pc aesthetic, pc setup.jpg",
+    gallery: [
+      "Assets/aes, aesthetic, acubi aesthetic, acubi room aesthetic, pc, pc aesthetic, pc setup.jpg",
+      "Assets/pc setup.jpg",
+      "Assets/white pc setup.jpg",
+    ],
     colors: ["RGB Black", "White", "RGB"],
     verified: true,
     inStock: true,
@@ -458,7 +487,7 @@ const products = [
     desc: "Ultimate gaming and streaming setup. High-end graphics card, powerful processor, premium cooling, RGB lighting, curved monitor, mechanical keyboard. Pre-configured and tested. Includes delivery and installation.",
     vendor: "PC Gaming Pro Store",
     location: "Lekki, Lagos",
-    specs: 'RTX 4070 · Ryzen 9 · 32GB RAM · 1TB NVMe'
+    specs: "RTX 4070 · Ryzen 9 · 32GB RAM · 1TB NVMe",
   },
   {
     id: 17,
@@ -484,7 +513,7 @@ const products = [
     desc: "Precision and style combined. Mechanical switches with customizable RGB lighting, programmable keys, wired/wireless modes, durable ABS keycaps. Perfect for gaming and professional typing.",
     vendor: "Gaming Peripherals Hub",
     location: "Ikeja, Lagos",
-    specs: 'Mechanical Switches · RGB Backlit · Programmable · Wired/Wireless'
+    specs: "Mechanical Switches · RGB Backlit · Programmable · Wired/Wireless",
   },
   {
     id: 18,
@@ -495,8 +524,11 @@ const products = [
     oldPrice: 249000,
     rating: 4.8,
     ratingCount: 623,
-    image: "Assets/The PixBow - Graphic design _ T-shirt design _ Book cover design _ Trifold design in Dhaka, Bangladesh.jpg",
-    gallery: ["Assets/The PixBow - Graphic design _ T-shirt design _ Book cover design _ Trifold design in Dhaka, Bangladesh.jpg"],
+    image:
+      "Assets/The PixBow - Graphic design _ T-shirt design _ Book cover design _ Trifold design in Dhaka, Bangladesh.jpg",
+    gallery: [
+      "Assets/The PixBow - Graphic design _ T-shirt design _ Book cover design _ Trifold design in Dhaka, Bangladesh.jpg",
+    ],
     colors: ["Black"],
     verified: true,
     inStock: true,
@@ -511,7 +543,7 @@ const products = [
     desc: "Professional-grade drawing tablet. 13.3-inch display, 8192 pressure levels, 120% sRGB color accuracy, USB-C connectivity, compatible with all design software. Ideal for digital artists and designers.",
     vendor: "Creative Tech Store",
     location: "Victoria Island, Lagos",
-    specs: '13.3" Display · 8192 Pressure · USB-C · sRGB 120%'
+    specs: '13.3" Display · 8192 Pressure · USB-C · sRGB 120%',
   },
   {
     id: 19,
@@ -522,8 +554,11 @@ const products = [
     oldPrice: 49000,
     rating: 4.6,
     ratingCount: 1124,
-    image: "Assets/iPhone 12 Pro – Resonance Pacific Blue (Light) – Stock Wallpaper - Wallpapers Central.jpg",
-    gallery: ["Assets/iPhone 12 Pro – Resonance Pacific Blue (Light) – Stock Wallpaper - Wallpapers Central.jpg"],
+    image:
+      "Assets/iPhone 12 Pro – Resonance Pacific Blue (Light) – Stock Wallpaper - Wallpapers Central.jpg",
+    gallery: [
+      "Assets/iPhone 12 Pro – Resonance Pacific Blue (Light) – Stock Wallpaper - Wallpapers Central.jpg",
+    ],
     colors: ["Black", "White", "Gray"],
     verified: true,
     inStock: true,
@@ -537,7 +572,7 @@ const products = [
     desc: "Charge multiple devices simultaneously. Supports iPhone, AirPods, Apple Watch. Fast wireless charging up to 15W, non-slip surface, compact design. Perfect for desk organization.",
     vendor: "Tech Accessories Nigeria",
     location: "Lekki, Lagos",
-    specs: '15W Wireless · Multi-Device · USB-C Power'
+    specs: "15W Wireless · Multi-Device · USB-C Power",
   },
   {
     id: 20,
@@ -548,8 +583,11 @@ const products = [
     oldPrice: 64000,
     rating: 4.7,
     ratingCount: 876,
-    image: "Assets/iPhone 12 Pro – Resonance Pacific Blue (Light) – Stock Wallpaper - Wallpapers Central.jpg",
-    gallery: ["Assets/iPhone 12 Pro – Resonance Pacific Blue (Light) – Stock Wallpaper - Wallpapers Central.jpg"],
+    image:
+      "Assets/iPhone 12 Pro – Resonance Pacific Blue (Light) – Stock Wallpaper - Wallpapers Central.jpg",
+    gallery: [
+      "Assets/iPhone 12 Pro – Resonance Pacific Blue (Light) – Stock Wallpaper - Wallpapers Central.jpg",
+    ],
     colors: ["Black", "Silver"],
     verified: true,
     inStock: true,
@@ -563,8 +601,8 @@ const products = [
     desc: "Expand your connectivity. 7-in-1 hub with USB 3.0, SD card reader, HDMI 4K output, USB-C PD charging. Ultra-compact, plug-and-play, compatible with Mac and Windows.",
     vendor: "Connectivity Pro Store",
     location: "Ikeja, Lagos",
-    specs: '7-in-1 · HDMI 4K · USB 3.0 · SD Reader'
-  }
+    specs: "7-in-1 · HDMI 4K · USB 3.0 · SD Reader",
+  },
 ];
 
 // ── HELPERS ───────────────────────────────────────────────
