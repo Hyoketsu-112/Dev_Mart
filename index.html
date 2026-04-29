@@ -17,21 +17,22 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   </head>
   <body>
     <!-- ANNOUNCEMENT BAR -->
     <div class="announce-bar">
       <div class="announce-track">
-        <span>🛡️ 100% Authentic Products</span><span class="dot">✦</span>
-        <span>🚚 Same-Day Lagos Delivery</span><span class="dot">✦</span>
-        <span>🔁 Free Returns within 7 Days</span><span class="dot">✦</span>
-        <span>✅ Verified Nigerian Vendors Only</span><span class="dot">✦</span>
-        <span>💳 Pay on Delivery Available</span><span class="dot">✦</span>
-        <span>🛡️ 100% Authentic Products</span><span class="dot">✦</span>
-        <span>🚚 Same-Day Lagos Delivery</span><span class="dot">✦</span>
-        <span>🔁 Free Returns within 7 Days</span><span class="dot">✦</span>
-        <span>✅ Verified Nigerian Vendors Only</span><span class="dot">✦</span>
-        <span>💳 Pay on Delivery Available</span><span class="dot">✦</span>
+        <span><i class="bi bi-shield"></i> 100% Authentic Products</span><span class="dot">✦</span>
+        <span><i class="bi bi-truck"></i> Same-Day Lagos Delivery</span><span class="dot">✦</span>
+        <span><i class="bi bi-arrow-repeat"></i> Free Returns within 7 Days</span><span class="dot">✦</span>
+        <span><i class="bi bi-check2-circle"></i> Verified Nigerian Vendors Only</span><span class="dot">✦</span>
+        <span><i class="bi bi-credit-card"></i> Pay on Delivery Available</span><span class="dot">✦</span>
+        <span><i class="bi bi-shield"></i> 100% Authentic Products</span><span class="dot">✦</span>
+        <span><i class="bi bi-truck"></i> Same-Day Lagos Delivery</span><span class="dot">✦</span>
+        <span><i class="bi bi-arrow-repeat"></i> Free Returns within 7 Days</span><span class="dot">✦</span>
+        <span><i class="bi bi-check2-circle"></i> Verified Nigerian Vendors Only</span><span class="dot">✦</span>
+        <span><i class="bi bi-credit-card"></i> Pay on Delivery Available</span><span class="dot">✦</span>
       </div>
     </div>
 
@@ -134,14 +135,14 @@
           <button class="cat-pill active" data-cat="all">
             <i class="fas fa-th-large"></i><span>All Products</span>
           </button>
-          <button class="cat-pill" data-cat="Fabrics">
-            <i class="fas fa-scroll"></i><span>Fabrics &amp; Textiles</span>
+          <button class="cat-pill" data-cat="Phones">
+            <i class="fas fa-phone" aria-hidden="true"></i><span>phones &amp; accessories</span>
           </button>
-          <button class="cat-pill" data-cat="Food">
-            <i class="fas fa-utensils"></i><span>Nigerian Food</span>
+          <button class="cat-pill" data-cat="Pc">
+            <i class="fas fa-laptop"></i><span>Computers &amp; Laptops</span>
           </button>
-          <button class="cat-pill" data-cat="Groceries">
-            <i class="fas fa-shopping-basket"></i><span>Groceries</span>
+          <button class="cat-pill" data-cat="consoles">
+            <i class="fas fa-gamepad"></i><span>Gaming Consoles</span>
           </button>
         </div>
       </div>
@@ -346,12 +347,12 @@
     <section class="trending-section">
       <div class="trending-header">
         <div>
-          <div class="section-label">🔥 Hot Deals</div>
+          <div class="section-label"><i class="bi bi-fire"></i> Hot Deals</div>
           <h2>Trending Now</h2>
           <p>Check out the most popular tech products this week</p>
         </div>
         <a href="#" class="view-all-link"
-          >View All <i class="fas fa-arrow-right"></i
+          >View All <i class="fas fa-arrow-right"></i>
         ></a>
       </div>
       <div class="trending-carousel" id="trendingCarousel"></div>
@@ -555,7 +556,7 @@
     <!-- DEALS BANNER -->
     <section class="deals-banner">
       <div class="deals-content">
-        <div class="deals-badge">🔥 Flash Sale</div>
+        <div class="deals-badge"><i class="bi bi-fire"></i> Flash Sale</div>
         <h3>Up to 50% Off Premium Tech</h3>
         <p>Limited time — get iPhone, Laptop, Gaming Consoles &amp; more.</p>
         <button class="deals-btn" onclick="filterCategory('Smartphones')">
@@ -701,7 +702,7 @@
     <section class="newsletter-section">
       <div class="newsletter-inner">
         <div class="newsletter-content">
-          <div class="newsletter-icon">📬</div>
+          <div class="newsletter-icon"><i class="bi bi-envelope"></i></div>
           <h2>Get Lagos Deals First</h2>
           <p>
             Subscribe for flash sales, new arrivals, and exclusive vendor
@@ -725,7 +726,7 @@
             </button>
           </div>
           <p class="newsletter-note">
-            🔒 No spam. Unsubscribe anytime. Your data is safe with us.
+            <i class="bi bi-info-circle"></i> No spam. Unsubscribe anytime. Your data is safe with us.
           </p>
         </form>
       </div>
@@ -979,7 +980,7 @@
       </div>
       <div class="cart-items-list" id="wishlistItemsList">
         <div class="cart-empty">
-          <div class="cart-empty-icon">🤍</div>
+          <div class="cart-empty-icon"><i class="bi bi-heart"></i></div>
           <p>Nothing saved yet</p>
           <span>Tap the heart on any product to save it here</span>
         </div>
@@ -1015,7 +1016,7 @@
       </div>
       <div class="cart-items-list" id="cartItemsList">
         <div class="cart-empty">
-          <div class="cart-empty-icon">🛍️</div>
+          <div class="cart-empty-icon"><i class="bi bi-cart-x"></i></div>
           <p>Your cart is empty</p>
           <span>Add items to get started</span>
         </div>
@@ -1047,7 +1048,7 @@
         <button class="checkout-btn" id="checkoutBtn">
           <i class="fas fa-lock"></i> Proceed to Checkout
         </button>
-        <p class="cart-note">🔒 Secured by Paystack. 100% safe.</p>
+        <p class="cart-note"><i class="bi bi-lock"></i> Secured by Paystack. 100% safe.</p>
       </div>
     </div>
 
@@ -1236,17 +1237,16 @@
       <div class="hiw-steps">
         <div class="hiw-step">
           <div class="hiw-step-num">1</div>
-          <div class="hiw-step-icon">🔍</div>
+          <div class="hiw-step-icon"><i class="bi bi-search"></i></div>
           <div class="hiw-step-title">Browse &amp; Search</div>
           <p>
-            Explore fabrics, Nigerian food &amp; groceries from verified Lagos
-            vendors.
+            Explore our wide range of tech products. Use filters to find exactly what you need. Check out trending items and AI picks for personalized suggestions.
           </p>
         </div>
         <div class="hiw-step-arrow">→</div>
         <div class="hiw-step">
           <div class="hiw-step-num">2</div>
-          <div class="hiw-step-icon">🛒</div>
+          <div class="hiw-step-icon"><i class="bi bi-bag-check"></i></div>
           <div class="hiw-step-title">Add to Cart</div>
           <p>
             Pick your quantity and add items with one tap. Your cart saves
@@ -1256,7 +1256,7 @@
         <div class="hiw-step-arrow">→</div>
         <div class="hiw-step">
           <div class="hiw-step-num">3</div>
-          <div class="hiw-step-icon">📍</div>
+          <div class="hiw-step-icon"><i class="bi bi-geo-alt"></i></div>
           <div class="hiw-step-title">Delivery Details</div>
           <p>
             Enter your Lagos address and choose same-day, next-day, or pickup.
@@ -1265,7 +1265,7 @@
         <div class="hiw-step-arrow">→</div>
         <div class="hiw-step">
           <div class="hiw-step-num">4</div>
-          <div class="hiw-step-icon">💳</div>
+          <div class="hiw-step-icon"><i class="bi bi-credit-card"></i></div>
           <div class="hiw-step-title">Pay Securely</div>
           <p>
             Pay on delivery or via Paystack. 100% secure. Use coupons for extra
@@ -1275,7 +1275,7 @@
         <div class="hiw-step-arrow">→</div>
         <div class="hiw-step">
           <div class="hiw-step-num">5</div>
-          <div class="hiw-step-icon">🎉</div>
+          <div class="hiw-step-icon"><i class="bi bi-gift"></i></div>
           <div class="hiw-step-title">Receive &amp; Enjoy</div>
           <p>
             Your order arrives fresh. Rate your vendor and earn loyalty rewards.
